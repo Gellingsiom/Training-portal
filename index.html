@@ -369,154 +369,159 @@ const COURSES = {
     ]
   },
   coshh: {
-    title: 'COSHH & Chemical Safety',
-    blurb: 'How to read a label, use cleaning chemicals safely and what to do if something goes wrong.',
+    title: 'COSHH & Safe Use of Chemicals',
+    blurb: 'The science of cleaning, reading a label, the right PPE, what to do in an accident, and the 10 golden rules.',
     mins: 25,
     code: 'COSHH',
     lessons: [
-      { t: 'What COSHH means', h: `
-        <p><b>COSHH</b> stands for <b>Control of Substances Hazardous to Health</b>. It is the common name for the rules and good practice that protect people at work from substances that could harm them.</p>
-        <p>In cleaning, catering, care and hospitality, hazardous substances include:</p>
-        <ul>
-          <li><b>Cleaning chemicals</b> such as bleach, descalers, oven cleaners, degreasers and dishwasher detergents</li>
-          <li><b>Dusts, mists and fumes</b>, including spray mist from trigger bottles</li>
-          <li><b>Biological hazards</b> such as body fluids, mould and bacteria</li>
-        </ul>
-        <p>Harm can be immediate, like a chemical burn or a splash in the eye. It can also build up slowly, like dermatitis from repeated skin contact or breathing problems from mists.</p>
-        <h3>Hazard and risk are different things</h3>
+      { t: 'What COSHH is and why it matters', h: `
+        <p>This course covers how to use your cleaning chemicals safely and effectively. Using them the right way keeps you safe, gets better results, and makes the job quicker and easier.</p>
+        <h3>What does COSHH stand for?</h3>
+        <p><b>C</b>ontrol <b>O</b>f <b>S</b>ubstances <b>H</b>azardous to <b>H</b>ealth. The COSHH rules are there to stop people being harmed by chemicals at work.</p>
+        <h3>Everyone has a part to play</h3>
         <table>
-          <tr><th>Hazard</th><td>Something with the <i>potential</i> to cause harm. A corrosive oven cleaner is a hazard.</td></tr>
-          <tr><th>Risk</th><td>How <i>likely</i> it is that harm will happen, and how serious it would be. Used with gloves, goggles and the right method, the risk is low.</td></tr>
+          <tr><th>Manufacturers</th><td>Safe packaging, clear labels and a Safety Data Sheet for every hazardous product</td></tr>
+          <tr><th>Employers</th><td>Risk assessments, training, and providing the right protective equipment</td></tr>
+          <tr><th>Employees (you)</th><td>Using the products provided safely, following your training, and wearing the protective equipment when it is recommended</td></tr>
         </table>
-        <div class="key"><b>Key points</b>COSHH is about controlling exposure. Almost every product can be used safely when you know what it is and follow the instructions.</div>` },
-      { t: 'Who is responsible', h: `
-        <p>Safety with chemicals is shared between your employer and you.</p>
-        <h3>Your employer should</h3>
+        <h3>Why is cleaning important?</h3>
+        <table>
+          <tr><th>Health and safety</th><td>Prevents infection, contamination and accidents</td></tr>
+          <tr><th>The law</th><td>Cleaning is a legal requirement, and poor standards can lead to a business being closed</td></tr>
+          <tr><th>The environment</th><td>A clean, attractive building improves the business's image and staff morale</td></tr>
+          <tr><th>Equipment</th><td>Well-cleaned equipment needs less maintenance and lasts longer</td></tr>
+        </table>
+        <div class="key"><b>Key points</b>COSHH protects you, your colleagues and the public. Your part is to use the right product, the right way, with the right protection.</div>` },
+      { t: 'The science of cleaning', h: `
+        <p>There are three main types of chemical you will use. It is important to know the difference, because they do different jobs.</p>
+        <table>
+          <tr><th>Detergent</th><td><b>Cleans</b> surfaces by removing dirt and grime. Detergents must be rinsed off surfaces afterwards.</td></tr>
+          <tr><th>Disinfectant</th><td><b>Reduces bacteria</b> to a safe level, but <b>does not clean</b>. Disinfectants work best on a surface that has already been cleaned.</td></tr>
+          <tr><th>Sanitiser</th><td><b>Cleans and reduces bacteria</b> at the same time. Sanitisers usually have a shelf life, which is how long they stay effective once made up.</td></tr>
+        </table>
+        <h3>Contact time</h3>
+        <p>All three need <b>contact time</b> to work: time left on the surface so the chemical can attack the dirt or kill the germs. Wiping it off straight away means it hasn't had a chance to work. <b>Check the product label</b> for the contact time.</p>
+        <h3>The four things that make cleaning work</h3>
+        <table>
+          <tr><th>Mechanical</th><td>Physical action, or "elbow grease", such as scrubbing a floor or wiping a surface</td></tr>
+          <tr><th>Water</th><td>Helps dissolve and carry away dirt such as grease and sugar. Most chemicals are designed to work with cold water, and hot water cools quickly anyway</td></tr>
+          <tr><th>Chemical</th><td>The detergent, disinfectant or sanitiser doing its job, at the right dilution</td></tr>
+          <tr><th>Time</th><td>The contact time the chemical needs</td></tr>
+        </table>
+        <p>Use the correct tools for the job, but remember <b>you</b> are the most important part of the equation.</p>
+        <div class="key"><b>Key points</b>Detergents clean, disinfectants kill germs, sanitisers do both. All of them need contact time.</div>` },
+      { t: 'How chemicals can harm you', h: `
+        <h3>Which chemicals are harmful?</h3>
+        <p><b>All of them, if you don't know how to use them properly.</b> Some are more hazardous than others, but even something as mild as shampoo stings if it gets in your eyes.</p>
+        <h3>Four ways in</h3>
+        <table>
+          <tr><th>Skin contact</th><td>Irritation, burns and dermatitis</td></tr>
+          <tr><th>Eyes</th><td>Splashes and spray can cause serious, sometimes permanent, damage</td></tr>
+          <tr><th>Inhalation</th><td>Breathing in fumes, vapour or spray mist can damage the lungs</td></tr>
+          <tr><th>Ingestion</th><td>Swallowing, usually by accident, such as from an unlabelled bottle or unwashed hands</td></tr>
+        </table>
+        <h3>Who can they harm?</h3>
+        <p>The people using them, work colleagues, members of the public on the premises, outside workers such as refuse collectors. In short, <b>anyone</b>. So never leave chemicals unattended, lock them away when not in use, and take extra care where the public have access.</p>
+        <h3>When are you most at risk?</h3>
+        <p>You are most likely to come into contact with <b>neat</b> chemical when:</p>
         <ul>
-          <li>Find out which hazardous substances are used and <b>assess the risk</b> (a COSHH assessment)</li>
-          <li>Put <b>control measures</b> in place and keep them working</li>
-          <li>Give you <b>information, instruction and training</b></li>
-          <li>Provide suitable <b>protective equipment</b> free of charge</li>
-          <li>Keep <b>safety data sheets</b> where staff can get to them</li>
+          <li>Removing an empty drum, bottle or pouch, or changing a dishwasher detergent drum</li>
+          <li>Replacing a feeder tube on a dosing system</li>
+          <li>Cleaning around drums and dispensers</li>
+          <li>Decanting, which means transferring chemical into another container</li>
+          <li>Spraying</li>
+          <li>Handling chemicals that have been stored badly, or with lids not properly closed</li>
         </ul>
-        <h3>You should</h3>
-        <ul>
-          <li>Follow your training, the label and your site's COSHH assessments</li>
-          <li>Use the controls and protective equipment provided, and look after them</li>
-          <li>Never mix, decant or improvise outside the instructions</li>
-          <li>Report spills, damaged containers, missing labels, faulty equipment and any symptoms such as sore skin or wheezing</li>
-        </ul>
-        <p>On the Isle of Man, workplace health and safety law is enforced by the Health and Safety at Work Inspectorate. Your employer's assessments tell you exactly how the rules apply on your site.</p>
-        <div class="key"><b>Key points</b>If you are unsure about a product or a task, stop and ask before you carry on. Nobody should be told off for checking.</div>` },
-      { t: 'Reading the label and data sheet', h: `
-        <p>The label is your first source of safety information. Read it <b>every time</b> you use a product you don't handle daily, because formulations change.</p>
-        <h3>Hazard pictograms</h3>
-        <p>Hazardous products carry red-bordered diamond symbols. The ones you will meet most often:</p>
+        <div class="key"><b>Key points</b>Be extra careful and wear the right protective equipment at these moments. Dosing systems and the methods you are trained in are designed to keep contact to a minimum.</div>` },
+      { t: 'Reading the label', h: `
+        <p>The label tells you whether a chemical can harm you, what it is for, how to dilute and use it safely, and what protective equipment to wear. <b>Read it before you use a product.</b></p>
+        <h3>What's on a product label</h3>
+        <ol>
+          <li><b>Hazard pictogram</b>: a red-bordered diamond warns you to take care</li>
+          <li><b>Product identifier</b>: the trade name of the chemical</li>
+          <li><b>Manufacturer or supplier</b>: name and address</li>
+          <li><b>Telephone number</b> for the supplier</li>
+          <li><b>Signal word</b>: <i>Danger</i> for more severe hazards, <i>Warning</i> for less severe</li>
+          <li><b>Hazard and precautionary phrases</b>: what the harm is, and how to avoid it</li>
+          <li><b>Hazardous ingredients</b></li>
+          <li><b>Supplemental information</b>, such as directions for use and dilution rates</li>
+        </ol>
+        <h3>Common hazard pictograms on cleaning products</h3>
         <div class="pics">
+          <div class="pic"><i><span>!</span></i><b>Health hazard</b>Covers several hazards, such as eye or skin irritation</div>
           <div class="pic"><i><span>⚗</span></i><b>Corrosive</b>Burns skin and damages eyes</div>
-          <div class="pic"><i><span>!</span></i><b>Irritant / harmful</b>Irritates skin, eyes or airways</div>
-          <div class="pic"><i><span>☠</span></i><b>Acute toxicity</b>Can be harmful or fatal in small amounts</div>
-          <div class="pic"><i><span>✺</span></i><b>Serious health hazard</b>Long-term effects, e.g. breathing sensitisation</div>
+          <div class="pic"><i><span>✺</span></i><b>Serious health hazard</b>Longer-term harm, such as to breathing</div>
           <div class="pic"><i><span>🔥</span></i><b>Flammable</b>Catches fire easily</div>
-          <div class="pic"><i><span>🐟</span></i><b>Environmental</b>Harmful to aquatic life</div>
+          <div class="pic"><i><span>🐟</span></i><b>Hazardous to the environment</b>Harmful to aquatic life</div>
         </div>
         <p class="hint">Symbols above are simplified for training. Always go by the actual symbol on the product.</p>
-        <h3>Words on the label</h3>
-        <ul>
-          <li><b>Signal word:</b> <i>Danger</i> means a more severe hazard, <i>Warning</i> a less severe one</li>
-          <li><b>Hazard statements:</b> what the harm is, e.g. "Causes severe skin burns and eye damage"</li>
-          <li><b>Precautionary statements:</b> what to do, e.g. "Wear protective gloves and eye protection"</li>
-          <li><b>Directions for use:</b> dilution rate, contact time and surfaces it is safe on</li>
-        </ul>
-        <h3>The safety data sheet (SDS)</h3>
-        <p>Every hazardous product has an SDS with 16 numbered sections. The four most useful to you:</p>
+        <p>The exclamation mark can mean many different hazards. The <b>Safety Data Sheet</b> gives the full detail. Its most useful sections are 2 (hazards), 4 (first aid), 7 (handling and storage) and 8 (protective equipment).</p>
+        <p>A product diluted with water at the right rate is usually less hazardous than the concentrate in the original container. That's another reason to dilute exactly as the label says.</p>
+        <div class="key"><b>Key points</b>No label, no use. If a container has lost its label, don't guess, don't sniff it, and report it.</div>` },
+      { t: 'Protective equipment', h: `
+        <p>There are four main pieces of protective equipment you need to know about. The label and your site's COSHH assessment tell you which to wear for each product.</p>
         <table>
-          <tr><th>Section 2</th><td>Hazards</td></tr>
-          <tr><th>Section 4</th><td>First aid measures</td></tr>
-          <tr><th>Section 7</th><td>Handling and storage</td></tr>
-          <tr><th>Section 8</th><td>Exposure controls and personal protection</td></tr>
+          <tr><th>Gloves</th><td>Protect your hands against chemicals and water</td></tr>
+          <tr><th>Gauntlets</th><td>Long gloves that protect your arms, for example when cleaning ovens or when your arms are in water for a long time</td></tr>
+          <tr><th>Goggles</th><td>Protect your eyes from chemical splashes and spray</td></tr>
+          <tr><th>Face mask</th><td>Protects your face and breathing from splashes and spray</td></tr>
         </table>
-        <div class="key"><b>Key points</b>No label, no use. If a container has lost its label, don't guess and don't sniff it. Report it.</div>` },
-      { t: 'How chemicals harm, and how we control it', h: `
-        <h3>Four ways into the body</h3>
+        <h3>Look after it</h3>
+        <ul>
+          <li><b>Check it before every use.</b> It must be clean and in good condition, with no holes or splits</li>
+          <li>Rinse gloves and gauntlets after use, and let them dry</li>
+          <li>Replace anything damaged straight away, and tell your supervisor if you run short</li>
+          <li>Protective equipment is the last line of defence. It works alongside safe methods and dosing systems, not instead of them</li>
+        </ul>
+        <div class="key"><b>Key points</b>Right equipment, in good condition, every time the label says so.</div>` },
+      { t: 'Accidents do happen', h: `
+        <p>If chemical gets on you, the first thing to do is <b>flood the area with cold, fresh running water</b>. This dilutes the chemical straight away and makes it less harmful.</p>
         <table>
-          <tr><th>Breathing in</th><td>Mists, vapours and dust. The most common route with sprays and in small unventilated rooms.</td></tr>
-          <tr><th>Skin and eyes</th><td>Splashes, wet gloves, or touching your face with contaminated hands.</td></tr>
-          <tr><th>Swallowing</th><td>Usually by accident: eating without washing hands, or chemicals in drinks bottles.</td></tr>
-          <tr><th>Through broken skin</th><td>Cuts, grazes and sharps injuries let substances straight in.</td></tr>
+          <tr><th>On the skin</th><td>Rinse thoroughly for <b>at least 10 minutes</b>. Remove contaminated clothing.</td></tr>
+          <tr><th>In the eyes</th><td>Rinse thoroughly with cold running water for <b>at least 15 minutes</b>, holding the eyelid open.</td></tr>
+          <tr><th>Breathed in</th><td>Move to fresh air.</td></tr>
+          <tr><th>Swallowed</th><td>Rinse the mouth. Do <b>not</b> make the person sick.</td></tr>
         </table>
-        <h3>The order of control</h3>
-        <p>Good control starts at the top of this list. Protective equipment is the <b>last</b> line of defence, used alongside the others.</p>
-        <ol>
-          <li><b>Eliminate</b>: is the product or task needed at all?</li>
-          <li><b>Substitute</b>: use a less hazardous product</li>
-          <li><b>Engineering controls</b>: dosing systems, closed dispensers, ventilation</li>
-          <li><b>Safe ways of working</b>: training, procedures, signage, less time exposed</li>
-          <li><b>Personal protective equipment (PPE)</b>: gloves, eye protection, aprons</li>
-        </ol>
-        <div class="key"><b>Key points</b>A wall-mounted dosing system is safer than free-pouring with gloves on, because it removes the splash in the first place.</div>` },
-      { t: 'Using chemicals safely', h: `
-        <h3>Diluting and dosing</h3>
+        <h3>Then</h3>
         <ul>
-          <li>Use the stated dilution. <b>Stronger does not clean better</b>; it wastes product, leaves residue and raises the risk</li>
-          <li>When diluting by hand, <b>add the chemical to the water</b>, not water to the chemical, to reduce splashing</li>
-          <li>Use cold or cool water unless the label says otherwise. Hot water creates more vapour</li>
+          <li><b>Alert your first aider</b> and get medical attention</li>
+          <li>Follow the first aid instructions on the <b>label</b></li>
+          <li>Check the <b>Safety Data Sheet</b>, and take it or the label with you if someone needs medical treatment</li>
+          <li>Follow your site's own procedures</li>
+          <li>In an emergency call <b>999</b></li>
         </ul>
-        <div class="warn"><b>Never mix products</b>Bleach mixed with an acid (such as a descaler or some toilet cleaners) releases toxic chlorine gas. Bleach mixed with ammonia-based products releases other toxic gases. Use one product, rinse, then use the next.</div>
-        <h3>Bottles and decanting</h3>
-        <ul>
-          <li>Only decant into a clean container that is <b>correctly labelled</b> for that product</li>
-          <li><b>Never</b> use drinks bottles, cups or food tubs for chemicals</li>
-          <li>Don't top up a bottle with a different product</li>
-        </ul>
-        <h3>While you work</h3>
-        <ul>
-          <li>Wear the PPE the label and your assessment call for. Check gloves for holes first</li>
-          <li>Ventilate: open a door or window, especially in washrooms and small rooms</li>
-          <li>Spray onto the cloth where you can, to cut down mist</li>
-          <li>Don't eat, drink or vape while handling chemicals. Wash your hands afterwards</li>
-        </ul>
-        <h3>Storage</h3>
-        <ul>
-          <li>Keep chemicals in a locked, cool, ventilated store, away from the public, children and vulnerable people</li>
-          <li>Original containers, lids on, labels facing out</li>
-          <li>Store acids and bleach-based products apart, and heavy or corrosive items low down, never above eye level</li>
-          <li>Never leave products unattended on a trolley or in a corridor</li>
-        </ul>
-        <div class="key"><b>Key points</b>Right product, right dilution, right PPE, one product at a time, and lock it away afterwards.</div>` },
-      { t: 'When things go wrong', h: `
         <h3>Spills</h3>
+        <p>Keep people away, put on your protective equipment, ventilate, then contain and clean it up following the Safety Data Sheet or your site procedure. If it's large, giving off fumes, or you don't know what it is, leave the area and get help. Report every spill and accident, however small.</p>
+        <div class="key"><b>Key points</b>Water first, quickly and for long enough. Then the first aider, then report it.</div>` },
+      { t: 'The 10 golden rules of COSHH', h: `
+        <p>Chemical safety comes down to simple rules and common sense.</p>
         <ol>
-          <li><b>Stop and assess.</b> Keep people away and put out a warning sign</li>
-          <li><b>Protect yourself.</b> Put on the right PPE and ventilate the area</li>
-          <li><b>Contain and absorb</b> using the method in your site procedure or on the SDS</li>
-          <li><b>Dispose</b> of waste as instructed and clean the area</li>
-          <li><b>Report it</b>, even if it was small</li>
+          <li><b>Use only approved chemicals.</b> Never bring products in from outside work. There is no safety data or training for them</li>
+          <li><b>Never mix chemicals. Mixing can kill.</b> A dangerous reaction can give off gas or heat. For example, bleach mixed with an acid toilet cleaner or descaler releases toxic chlorine gas</li>
+          <li><b>Never decant</b> unless the container is properly labelled, and never into anything people eat or drink from</li>
+          <li><b>Store chemicals safely,</b> preferably in a locked cupboard. Take particular care in food areas, keep chemicals away from food, and never store them above it</li>
+          <li><b>Use the right product for the job,</b> for example toilet cleaner for toilets and glass cleaner for glass. Never use a product for something it wasn't designed for</li>
+          <li><b>Always wear the protective equipment</b> and use the correct equipment for the job</li>
+          <li><b>Keep COSHH information</b>, such as the site manual and Safety Data Sheets, somewhere safe and easy to get to</li>
+          <li><b>Add chemicals to water,</b> not water to chemicals, to avoid splash-back and too much foam</li>
+          <li><b>Always follow the manufacturer's instructions</b> on the label and in your site manual</li>
+          <li><b>More is not better.</b> Extra chemical wastes money, can damage surfaces, and puts you at more risk</li>
         </ol>
-        <p>If the spill is large, gives off fumes, or you don't know what it is: leave the area, keep others out and get help.</p>
-        <h3>First aid basics</h3>
-        <table>
-          <tr><th>In the eyes</th><td>Rinse straight away with plenty of clean running water or eyewash for at least 10 to 15 minutes, holding the eyelid open. Get medical help.</td></tr>
-          <tr><th>On the skin</th><td>Remove contaminated clothing and rinse with plenty of water. Get medical advice if there is burning, blistering or lasting redness.</td></tr>
-          <tr><th>Breathed in</th><td>Move to fresh air. Get medical help if there is coughing, wheezing or tightness that doesn't settle.</td></tr>
-          <tr><th>Swallowed</th><td>Do <b>not</b> make the person sick. Rinse the mouth and get medical help straight away.</td></tr>
-        </table>
-        <p>Always follow the first aid section on the product's label or SDS, and <b>take the label or SDS with you</b> if someone needs medical treatment. In an emergency call <b>999</b>.</p>
-        <h3>Report and record</h3>
-        <p>Tell your supervisor about every incident, near miss and symptom. Reports are how unsafe products and methods get fixed.</p>
-        <div class="key"><b>Key points</b>Water, quickly and for long enough, is the first response to most splashes. Then get help and report it.</div>` }
+        <div class="key"><b>Thanks for your attention, and please stay safe</b>Pass the quiz to get your certificate.</div>` }
     ],
     quiz: [
       { q:'What does COSHH stand for?', a:['Control of Substances Hazardous to Health','Care of Staff in Hospitality and Hygiene','Cleaning Operations Safety and Hygiene Handbook','Control of Spills, Hazards and Harm'], why:'COSHH is the Control of Substances Hazardous to Health.' },
-      { q:'Which statement best describes the difference between hazard and risk?', a:['A hazard can cause harm; risk is how likely and how serious that harm is','They mean the same thing','Risk is the product; hazard is the person using it','A hazard only exists if someone is hurt'], why:'A hazard has the potential to harm. Risk is the chance and severity of that harm happening.' },
-      { q:'You find a spray bottle of clear liquid with no label. What should you do?', a:['Do not use it, and report it','Smell it to work out what it is','Use it on a small area first','Top it up with water and carry on'], why:'No label, no use. Never guess or sniff.' },
-      { q:'Why must bleach never be mixed with an acidic descaler?', a:['It releases toxic chlorine gas','It stops both products smelling nice','It makes the mixture freeze','It turns the solution into plain water'], why:'Bleach and acids react to release chlorine gas.' },
-      { q:'When diluting a concentrate by hand, what is the safer order?', a:['Add the chemical to the water','Add the water to the chemical','Order makes no difference','Mix them in a drinks bottle first'], why:'Adding chemical to water reduces the chance of concentrated product splashing.' },
-      { q:'Where does PPE sit in the order of control measures?', a:['Last, used alongside other controls','First, before anything else','It replaces all other controls','It is only for managers'], why:'PPE is the last line of defence after elimination, substitution, engineering controls and safe working methods.' },
-      { q:'A colleague gets oven cleaner in their eye. What is the first thing to do?', a:['Rinse with plenty of clean water for at least 10 to 15 minutes','Rub the eye with a dry cloth','Wait to see if it settles','Apply hand cream around the eye'], why:'Immediate, prolonged rinsing limits the damage. Then get medical help.' },
-      { q:'Someone has swallowed a cleaning chemical. What should you NOT do?', a:['Make them sick','Rinse their mouth','Get medical help straight away','Take the label or SDS to the medical team'], why:'Vomiting brings the chemical back up and can cause further burns.' },
-      { q:'Which section of a safety data sheet covers first aid measures?', a:['Section 4','Section 1','Section 9','Section 16'], why:'Section 4 is first aid. Section 8 covers exposure controls and PPE.' },
-      { q:'Which is a correct way to store cleaning chemicals?', a:['Locked away in original labelled containers, corrosives low down','On the top shelf above head height to keep them out of the way','Decanted into old drinks bottles to save space','On the cleaning trolley in the corridor overnight'], why:'Secure storage, original containers, and heavy or corrosive items stored low.' }
+      { q:'Under COSHH, what is the employee’s responsibility?', a:['Use the products provided safely and wear protective equipment when recommended','Write the Safety Data Sheets','Design the product labels','Carry out the risk assessments'], why:'Manufacturers label and provide data sheets, employers assess and train, employees use products safely.' },
+      { q:'Which type of chemical reduces bacteria but does NOT clean?', a:['A disinfectant','A detergent','A sanitiser','Washing-up liquid'], why:'Disinfectants kill germs but don’t remove dirt, so the surface should be cleaned first.' },
+      { q:'What is a sanitiser?', a:['A chemical that cleans and reduces bacteria at the same time','A chemical that only removes grease','A chemical that only makes things smell fresh','Any chemical with a red label'], why:'Sanitisers combine cleaning and germ-killing, and usually have a shelf life.' },
+      { q:'Why do cleaning chemicals need contact time?', a:['To give the chemical time to attack the dirt or kill germs','So the surface dries faster','To make the product last longer in the bottle','It isn’t needed if you scrub hard'], why:'Wiping off straight away means the chemical hasn’t had time to work. Check the label.' },
+      { q:'Which cleaning chemicals can be harmful?', a:['All of them, if not used properly','Only ones with a skull symbol','None, if they are diluted','Only bleach'], why:'Every chemical can cause harm if misused. Even shampoo stings in the eyes.' },
+      { q:'Which of these is a time when you are most likely to contact neat chemical?', a:['Changing an empty dishwasher detergent drum','Reading the label','Washing your hands','Signing the cleaning schedule'], why:'Changing drums, replacing feeder tubes, decanting and spraying all carry a higher risk.' },
+      { q:'Chemical splashes in your eye. What should you do?', a:['Rinse with cold running water for at least 15 minutes, then alert the first aider','Rub it with a cloth','Rinse for a few seconds and carry on','Wait to see if it gets better'], why:'Flood the eye straight away for at least 15 minutes, then get first aid and medical help.' },
+      { q:'Chemical splashes on your skin. How long should you rinse it for?', a:['At least 10 minutes','10 seconds','Only until it stops stinging','There is no need to rinse'], why:'Rinse thoroughly with cold running water for at least 10 minutes.' },
+      { q:'Why must you never mix chemicals?', a:['A dangerous reaction can give off toxic gas or heat','It makes them work too well','It voids the warranty','It changes the colour'], why:'Mixing can kill. Bleach and acids, for example, release chlorine gas.' },
+      { q:'When diluting a chemical, what is the safe way?', a:['Add the chemical to the water','Add the water to the chemical','Order makes no difference','Mix them in a drinks bottle'], why:'Chemical into water reduces splash-back of concentrate and excess foam.' },
+      { q:'Your cleaning isn’t working well. Should you use more chemical than the label says?', a:['No, more is not better: follow the dilution on the label','Yes, double it','Yes, use it neat','Yes, add a second product to boost it'], why:'Extra chemical wastes product, can damage surfaces and raises the risk to you.' }
     ]
   },
   ccic: {
