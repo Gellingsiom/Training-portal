@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gellings Training Academy</title>
+<meta name="description" content="Free online training for the teams who use Gellings products. Short courses, a quick quiz and a certificate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2340;--navy2:#263156;--teal:#54b2ac;--teal-d:#3a8f89;--brass:#c9a35c;--bg:#f6f4ef;--card:#fff;--ink:#1f2433;--mute:#667085;--line:#e4e0d6;--ok:#2e8b57;--bad:#c0392b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em;color:var(--navy)}
+h1{font-size:clamp(2rem,6vw,3.2rem)}h2{font-size:clamp(1.5rem,4vw,2.1rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}a{color:var(--teal-d)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 24px;font:600 1rem Inter,sans-serif;cursor:pointer;text-decoration:none;background:var(--teal);color:#fff;transition:.15s}
+.btn:hover{background:var(--teal-d)}
+.btn.brass{background:var(--brass);color:var(--navy)}.btn.brass:hover{filter:brightness(.94)}
+.btn.ghost{background:transparent;color:var(--navy);border:2px solid var(--line)}.btn.ghost:hover{border-color:var(--teal)}
+.btn.light{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,a:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+
+/* header */
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;cursor:pointer;background:none;border:0;padding:0}
+.brand b{font:700 1.35rem Fraunces,serif;letter-spacing:.01em}
+.brand span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border-left:1px solid rgba(255,255,255,.25);padding-left:10px}
+.who{font-size:.85rem;display:flex;align-items:center;gap:10px}
+.who button{background:none;border:0;color:var(--teal);font:600 .85rem Inter;cursor:pointer;padding:6px}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(84,178,172,.14)}
+.hero h1{color:#fff;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero p{max-width:52ch;color:#d5dbea;font-size:1.08rem}
+.eyebrow{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;position:relative;z-index:1}
+section{padding:52px 0}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.steps .card b.n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--brass);font:700 1.1rem Fraunces;margin-bottom:12px}
+.course{display:flex;flex-direction:column;gap:8px;position:relative}
+.course .tag{align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#e6f4f3;color:var(--teal-d)}
+.course.soon{opacity:.72}.course.soon .tag{background:#f1ede2;color:#8a7440}
+.course .meta{font-size:.85rem;color:var(--mute)}
+.course .btn{margin-top:auto;align-self:flex-start}
+.bar{height:8px;background:#ece8dd;border-radius:99px;overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:99px;transition:width .3s}
+.band{background:var(--navy);color:#fff}.band h2{color:#fff}.band p{color:#d5dbea}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer;color:var(--navy)}
+details p{margin:.7em 0 0;color:#444b5c}
+footer{background:#111830;color:#aab2c8;padding:30px 0;font-size:.88rem}
+footer b{color:#fff}
+
+/* sign-in modal */
+.modal{position:fixed;inset:0;background:rgba(17,24,48,.7);display:none;place-items:center;padding:18px;z-index:50}
+.modal.on{display:grid}
+.modal .card{max-width:440px;width:100%}
+label{display:block;font-weight:600;font-size:.9rem;margin:12px 0 4px}
+input[type=text],input[type=email]{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:1rem Inter}
+.hint{font-size:.8rem;color:var(--mute)}
+
+/* course player */
+.player{display:grid;gap:22px;grid-template-columns:260px 1fr;padding:28px 0 60px}
+@media(max-width:780px){.player{grid-template-columns:1fr}}
+.side{align-self:start;position:sticky;top:84px}
+@media(max-width:780px){.side{position:static}}
+.side ol{list-style:none;margin:10px 0 0;padding:0}
+.side li button{width:100%;text-align:left;background:none;border:0;padding:10px 10px;border-radius:10px;font:500 .93rem Inter;cursor:pointer;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
+.side li button:hover{background:#f1ede2}
+.side li button.cur{background:var(--navy);color:#fff}
+.side li button:disabled{opacity:.45;cursor:not-allowed}
+.dot{flex:0 0 20px;height:20px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.7rem;margin-top:2px}
+.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.lesson h2{margin-top:0}
+.lesson ul{padding-left:1.2em;margin:0 0 1em}.lesson li{margin-bottom:.4em}
+.key{background:#e6f4f3;border-left:5px solid var(--teal);border-radius:10px;padding:14px 18px;margin:18px 0}
+.warn{background:#fdf1ee;border-left:5px solid var(--bad);border-radius:10px;padding:14px 18px;margin:18px 0}
+.key b,.warn b{display:block;margin-bottom:4px;color:var(--navy)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px;flex-wrap:wrap}
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:16px 0}
+.pic{text-align:center;font-size:.82rem;color:#444b5c}
+.pic i{display:grid;place-items:center;width:56px;height:56px;margin:14px auto 20px;border:4px solid #d0221c;background:#fff;transform:rotate(45deg);font-style:normal}
+.pic i span{transform:rotate(-45deg);font-size:1.5rem;font-weight:700;color:#111}
+.pic b{display:block;color:var(--navy)}
+table{border-collapse:collapse;width:100%;margin:0 0 1em;font-size:.93rem}
+td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:#f1ede2}
+
+/* quiz */
+.q{margin-bottom:22px}.q h3{font:600 1.02rem Inter;color:var(--ink);margin-bottom:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:#fff}
+.opt:hover{border-color:var(--teal)}
+.opt input{margin-top:4px;accent-color:var(--teal-d)}
+.opt.right{border-color:var(--ok);background:#eaf6ef}.opt.wrong{border-color:var(--bad);background:#fdf1ee}
+.why{font-size:.88rem;color:#444b5c;margin:4px 0 0}
+.result{text-align:center;padding:26px}
+.score{font:700 3.2rem Fraunces;color:var(--navy)}
+
+/* certificate */
+.cert{background:#fff;border:10px solid var(--navy);outline:2px solid var(--brass);outline-offset:-18px;padding:54px 36px;text-align:center;max-width:820px;margin:28px auto}
+.cert .logo{font:700 2rem Fraunces;color:var(--navy)}
+.cert .sub{letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;color:var(--brass);font-weight:700}
+.cert h2{font-size:2.2rem;margin:26px 0 6px}
+.cert .name{font:600 2rem Fraunces;color:var(--teal-d);border-bottom:2px solid var(--brass);display:inline-block;padding:0 26px 6px;margin:12px 0}
+.cert .small{font-size:.8rem;color:var(--mute);margin-top:26px}
+.cert dl{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin:26px 0 0}
+.cert dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.cert dd{margin:0;font-weight:600}
+.center{text-align:center}
+[hidden]{display:none!important}
+@media print{
+  body{background:#fff}
+  header.top,footer,.noprint{display:none!important}
+  .cert{margin:0 auto;border-width:8px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <button class="brand" id="homeBtn" aria-label="Gellings Training Academy home">
+      <!-- LOGO: swap this text for your base64 <img> logo as on the other pages -->
+      <b>Gellings</b><span>Training Academy</span>
+    </button>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Gellings</b> · Hygiene &amp; hospitality trade supplies since 1965<br>
+    Unit 4, Kirby Farm Industrial Estate, Braddan, Isle of Man</p>
+    <p>These courses give general awareness training. They support, and do not replace, your employer's own risk assessments, site rules and the product label and safety data sheet.</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <form class="card" id="signForm">
+    <h2 id="mTitle">Before you start</h2>
+    <p class="hint">No password needed. Your name goes on your certificate, and your progress is saved on this device.</p>
+    <label for="fName">Your full name</label>
+    <input type="text" id="fName" required maxlength="60" autocomplete="name">
+    <label for="fCo">Company or workplace</label>
+    <input type="text" id="fCo" required maxlength="80" autocomplete="organization">
+    <label for="fMgr">Manager's email <span class="hint">(optional, to send them your result)</span></label>
+    <input type="email" id="fMgr" maxlength="120">
+    <div class="nav">
+      <button type="button" class="btn ghost" id="mCancel">Cancel</button>
+      <button class="btn">Save and continue</button>
+    </div>
+  </form>
+</div>
+
+<script>
+/* ============ SETTINGS (edit these) ============ */
+const CONFIG = {
+  resultsEmail: '',          // Gellings inbox that should receive completion results, e.g. 'someone@yourdomain'
+  passMark: 80,              // % needed to pass
+  storeKey: 'gellingsTraining.v1'
+};
+
+/* ============ COURSE CATALOGUE ============ */
+const SOON = [
+  ['Colour Coding & Infection Control','Stop germs travelling between areas with a simple colour system.'],
+  ['Washroom Hygiene','Cleaning order, dwell times and the touch points people miss.'],
+  ['Kitchen Hygiene','Clean-as-you-go, sanitiser contact times and food-safe products.'],
+  ['Floor Care','Mopping systems, machines, pads and slip prevention.'],
+  ['Manual Handling','Lifting, carrying and moving stock without injury.']
+];
+
+const COURSES = {
+  coshh: {
+    title: 'COSHH & Chemical Safety',
+    blurb: 'How to read a label, use cleaning chemicals safely and what to do if something goes wrong.',
+    mins: 25,
+    code: 'COSHH',
+    lessons: [
+      { t: 'What COSHH means', h: `
+        <p><b>COSHH</b> stands for <b>Control of Substances Hazardous to Health</b>. It is the common name for the rules and good practice that protect people at work from substances that could harm them.</p>
+        <p>In cleaning, catering, care and hospitality, hazardous substances include:</p>
+        <ul>
+          <li><b>Cleaning chemicals</b> such as bleach, descalers, oven cleaners, degreasers and dishwasher detergents</li>
+          <li><b>Dusts, mists and fumes</b>, including spray mist from trigger bottles</li>
+          <li><b>Biological hazards</b> such as body fluids, mould and bacteria</li>
+        </ul>
+        <p>Harm can be immediate, like a chemical burn or a splash in the eye. It can also build up slowly, like dermatitis from repeated skin contact or breathing problems from mists.</p>
+        <h3>Hazard and risk are different things</h3>
+        <table>
+          <tr><th>Hazard</th><td>Something with the <i>potential</i> to cause harm. A corrosive oven cleaner is a hazard.</td></tr>
+          <tr><th>Risk</th><td>How <i>likely</i> it is that harm will happen, and how serious it would be. Used with gloves, goggles and the right method, the risk is low.</td></tr>
+        </table>
+        <div class="key"><b>Key points</b>COSHH is about controlling exposure. Almost every product can be used safely when you know what it is and follow the instructions.</div>` },
+      { t: 'Who is responsible', h: `
+        <p>Safety with chemicals is shared between your employer and you.</p>
+        <h3>Your employer should</h3>
+        <ul>
+          <li>Find out which hazardous substances are used and <b>assess the risk</b> (a COSHH assessment)</li>
+          <li>Put <b>control measures</b> in place and keep them working</li>
+          <li>Give you <b>information, instruction and training</b></li>
+          <li>Provide suitable <b>protective equipment</b> free of charge</li>
+          <li>Keep <b>safety data sheets</b> where staff can get to them</li>
+        </ul>
+        <h3>You should</h3>
+        <ul>
+          <li>Follow your training, the label and your site's COSHH assessments</li>
+          <li>Use the controls and protective equipment provided, and look after them</li>
+          <li>Never mix, decant or improvise outside the instructions</li>
+          <li>Report spills, damaged containers, missing labels, faulty equipment and any symptoms such as sore skin or wheezing</li>
+        </ul>
+        <p>On the Isle of Man, workplace health and safety law is enforced by the Health and Safety at Work Inspectorate. Your employer's assessments tell you exactly how the rules apply on your site.</p>
+        <div class="key"><b>Key points</b>If you are unsure about a product or a task, stop and ask before you carry on. Nobody should be told off for checking.</div>` },
+      { t: 'Reading the label and data sheet', h: `
+        <p>The label is your first source of safety information. Read it <b>every time</b> you use a product you don't handle daily, because formulations change.</p>
+        <h3>Hazard pictograms</h3>
+        <p>Hazardous products carry red-bordered diamond symbols. The ones you will meet most often:</p>
+        <div class="pics">
+          <div class="pic"><i><span>⚗</span></i><b>Corrosive</b>Burns skin and damages eyes</div>
+          <div class="pic"><i><span>!</span></i><b>Irritant / harmful</b>Irritates skin, eyes or airways</div>
+          <div class="pic"><i><span>☠</span></i><b>Acute toxicity</b>Can be harmful or fatal in small amounts</div>
+          <div class="pic"><i><span>✺</span></i><b>Serious health hazard</b>Long-term effects, e.g. breathing sensitisation</div>
+          <div class="pic"><i><span>🔥</span></i><b>Flammable</b>Catches fire easily</div>
+          <div class="pic"><i><span>🐟</span></i><b>Environmental</b>Harmful to aquatic life</div>
+        </div>
+        <p class="hint">Symbols above are simplified for training. Always go by the actual symbol on the product.</p>
+        <h3>Words on the label</h3>
+        <ul>
+          <li><b>Signal word:</b> <i>Danger</i> means a more severe hazard, <i>Warning</i> a less severe one</li>
+          <li><b>Hazard statements:</b> what the harm is, e.g. "Causes severe skin burns and eye damage"</li>
+          <li><b>Precautionary statements:</b> what to do, e.g. "Wear protective gloves and eye protection"</li>
+          <li><b>Directions for use:</b> dilution rate, contact time and surfaces it is safe on</li>
+        </ul>
+        <h3>The safety data sheet (SDS)</h3>
+        <p>Every hazardous product has an SDS with 16 numbered sections. The four most useful to you:</p>
+        <table>
+          <tr><th>Section 2</th><td>Hazards</td></tr>
+          <tr><th>Section 4</th><td>First aid measures</td></tr>
+          <tr><th>Section 7</th><td>Handling and storage</td></tr>
+          <tr><th>Section 8</th><td>Exposure controls and personal protection</td></tr>
+        </table>
+        <div class="key"><b>Key points</b>No label, no use. If a container has lost its label, don't guess and don't sniff it. Report it.</div>` },
+      { t: 'How chemicals harm, and how we control it', h: `
+        <h3>Four ways into the body</h3>
+        <table>
+          <tr><th>Breathing in</th><td>Mists, vapours and dust. The most common route with sprays and in small unventilated rooms.</td></tr>
+          <tr><th>Skin and eyes</th><td>Splashes, wet gloves, or touching your face with contaminated hands.</td></tr>
+          <tr><th>Swallowing</th><td>Usually by accident: eating without washing hands, or chemicals in drinks bottles.</td></tr>
+          <tr><th>Through broken skin</th><td>Cuts, grazes and sharps injuries let substances straight in.</td></tr>
+        </table>
+        <h3>The order of control</h3>
+        <p>Good control starts at the top of this list. Protective equipment is the <b>last</b> line of defence, used alongside the others.</p>
+        <ol>
+          <li><b>Eliminate</b>: is the product or task needed at all?</li>
+          <li><b>Substitute</b>: use a less hazardous product</li>
+          <li><b>Engineering controls</b>: dosing systems, closed dispensers, ventilation</li>
+          <li><b>Safe ways of working</b>: training, procedures, signage, less time exposed</li>
+          <li><b>Personal protective equipment (PPE)</b>: gloves, eye protection, aprons</li>
+        </ol>
+        <div class="key"><b>Key points</b>A wall-mounted dosing system is safer than free-pouring with gloves on, because it removes the splash in the first place.</div>` },
+      { t: 'Using chemicals safely', h: `
+        <h3>Diluting and dosing</h3>
+        <ul>
+          <li>Use the stated dilution. <b>Stronger does not clean better</b>; it wastes product, leaves residue and raises the risk</li>
+          <li>When diluting by hand, <b>add the chemical to the water</b>, not water to the chemical, to reduce splashing</li>
+          <li>Use cold or cool water unless the label says otherwise. Hot water creates more vapour</li>
+        </ul>
+        <div class="warn"><b>Never mix products</b>Bleach mixed with an acid (such as a descaler or some toilet cleaners) releases toxic chlorine gas. Bleach mixed with ammonia-based products releases other toxic gases. Use one product, rinse, then use the next.</div>
+        <h3>Bottles and decanting</h3>
+        <ul>
+          <li>Only decant into a clean container that is <b>correctly labelled</b> for that product</li>
+          <li><b>Never</b> use drinks bottles, cups or food tubs for chemicals</li>
+          <li>Don't top up a bottle with a different product</li>
+        </ul>
+        <h3>While you work</h3>
+        <ul>
+          <li>Wear the PPE the label and your assessment call for. Check gloves for holes first</li>
+          <li>Ventilate: open a door or window, especially in washrooms and small rooms</li>
+          <li>Spray onto the cloth where you can, to cut down mist</li>
+          <li>Don't eat, drink or vape while handling chemicals. Wash your hands afterwards</li>
+        </ul>
+        <h3>Storage</h3>
+        <ul>
+          <li>Keep chemicals in a locked, cool, ventilated store, away from the public, children and vulnerable people</li>
+          <li>Original containers, lids on, labels facing out</li>
+          <li>Store acids and bleach-based products apart, and heavy or corrosive items low down, never above eye level</li>
+          <li>Never leave products unattended on a trolley or in a corridor</li>
+        </ul>
+        <div class="key"><b>Key points</b>Right product, right dilution, right PPE, one product at a time, and lock it away afterwards.</div>` },
+      { t: 'When things go wrong', h: `
+        <h3>Spills</h3>
+        <ol>
+          <li><b>Stop and assess.</b> Keep people away and put out a warning sign</li>
+          <li><b>Protect yourself.</b> Put on the right PPE and ventilate the area</li>
+          <li><b>Contain and absorb</b> using the method in your site procedure or on the SDS</li>
+          <li><b>Dispose</b> of waste as instructed and clean the area</li>
+          <li><b>Report it</b>, even if it was small</li>
+        </ol>
+        <p>If the spill is large, gives off fumes, or you don't know what it is: leave the area, keep others out and get help.</p>
+        <h3>First aid basics</h3>
+        <table>
+          <tr><th>In the eyes</th><td>Rinse straight away with plenty of clean running water or eyewash for at least 10 to 15 minutes, holding the eyelid open. Get medical help.</td></tr>
+          <tr><th>On the skin</th><td>Remove contaminated clothing and rinse with plenty of water. Get medical advice if there is burning, blistering or lasting redness.</td></tr>
+          <tr><th>Breathed in</th><td>Move to fresh air. Get medical help if there is coughing, wheezing or tightness that doesn't settle.</td></tr>
+          <tr><th>Swallowed</th><td>Do <b>not</b> make the person sick. Rinse the mouth and get medical help straight away.</td></tr>
+        </table>
+        <p>Always follow the first aid section on the product's label or SDS, and <b>take the label or SDS with you</b> if someone needs medical treatment. In an emergency call <b>999</b>.</p>
+        <h3>Report and record</h3>
+        <p>Tell your supervisor about every incident, near miss and symptom. Reports are how unsafe products and methods get fixed.</p>
+        <div class="key"><b>Key points</b>Water, quickly and for long enough, is the first response to most splashes. Then get help and report it.</div>` }
+    ],
+    quiz: [
+      { q:'What does COSHH stand for?', a:['Control of Substances Hazardous to Health','Care of Staff in Hospitality and Hygiene','Cleaning Operations Safety and Hygiene Handbook','Control of Spills, Hazards and Harm'], why:'COSHH is the Control of Substances Hazardous to Health.' },
+      { q:'Which statement best describes the difference between hazard and risk?', a:['A hazard can cause harm; risk is how likely and how serious that harm is','They mean the same thing','Risk is the product; hazard is the person using it','A hazard only exists if someone is hurt'], why:'A hazard has the potential to harm. Risk is the chance and severity of that harm happening.' },
+      { q:'You find a spray bottle of clear liquid with no label. What should you do?', a:['Do not use it, and report it','Smell it to work out what it is','Use it on a small area first','Top it up with water and carry on'], why:'No label, no use. Never guess or sniff.' },
+      { q:'Why must bleach never be mixed with an acidic descaler?', a:['It releases toxic chlorine gas','It stops both products smelling nice','It makes the mixture freeze','It turns the solution into plain water'], why:'Bleach and acids react to release chlorine gas.' },
+      { q:'When diluting a concentrate by hand, what is the safer order?', a:['Add the chemical to the water','Add the water to the chemical','Order makes no difference','Mix them in a drinks bottle first'], why:'Adding chemical to water reduces the chance of concentrated product splashing.' },
+      { q:'Where does PPE sit in the order of control measures?', a:['Last, used alongside other controls','First, before anything else','It replaces all other controls','It is only for managers'], why:'PPE is the last line of defence after elimination, substitution, engineering controls and safe working methods.' },
+      { q:'A colleague gets oven cleaner in their eye. What is the first thing to do?', a:['Rinse with plenty of clean water for at least 10 to 15 minutes','Rub the eye with a dry cloth','Wait to see if it settles','Apply hand cream around the eye'], why:'Immediate, prolonged rinsing limits the damage. Then get medical help.' },
+      { q:'Someone has swallowed a cleaning chemical. What should you NOT do?', a:['Make them sick','Rinse their mouth','Get medical help straight away','Take the label or SDS to the medical team'], why:'Vomiting brings the chemical back up and can cause further burns.' },
+      { q:'Which section of a safety data sheet covers first aid measures?', a:['Section 4','Section 1','Section 9','Section 16'], why:'Section 4 is first aid. Section 8 covers exposure controls and PPE.' },
+      { q:'Which is a correct way to store cleaning chemicals?', a:['Locked away in original labelled containers, corrosives low down','On the top shelf above head height to keep them out of the way','Decanted into old drinks bottles to save space','On the cleaning trolley in the corridor overnight'], why:'Secure storage, original containers, and heavy or corrosive items stored low.' }
+    ]
+  }
+};
+
+/* ============ STATE ============ */
+let S = { user:null, courses:{} };
+try { const raw = localStorage.getItem(CONFIG.storeKey); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e){}
+const save = () => { try { localStorage.setItem(CONFIG.storeKey, JSON.stringify(S)); } catch(e){} };
+const prog = id => (S.courses[id] = S.courses[id] || { seen:[], best:0, pass:null });
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = s => document.querySelector(s);
+const app = $('#app');
+let view = { name:'home' };
+let afterSign = null;
+
+/* ============ HEADER / SIGN-IN ============ */
+function drawWho(){
+  $('#who').innerHTML = S.user
+    ? `<span>${esc(S.user.name)}</span><button id="editMe">Edit</button>`
+    : `<button id="editMe">Sign in</button>`;
+  $('#editMe').onclick = () => openSign();
+}
+function openSign(then){
+  afterSign = then || null;
+  $('#fName').value = S.user?.name || ''; $('#fCo').value = S.user?.company || ''; $('#fMgr').value = S.user?.manager || '';
+  $('#modal').classList.add('on'); $('#fName').focus();
+}
+$('#mCancel').onclick = () => $('#modal').classList.remove('on');
+$('#signForm').onsubmit = e => {
+  e.preventDefault();
+  S.user = { name:$('#fName').value.trim(), company:$('#fCo').value.trim(), manager:$('#fMgr').value.trim() };
+  save(); $('#modal').classList.remove('on'); drawWho();
+  if (afterSign) afterSign(); else render();
+};
+$('#homeBtn').onclick = () => go({ name:'home' });
+
+function go(v){ view = v; render(); window.scrollTo(0,0); }
+function start(id){
+  const run = () => { const p = prog(id); const n = COURSES[id].lessons.length; go({ name:'course', id, i: Math.min(p.seen.length, n-1) }); };
+  S.user ? run() : openSign(run);
+}
+
+/* ============ VIEWS ============ */
+function render(){
+  drawWho();
+  ({ home:vHome, course:vCourse, quiz:vQuiz, cert:vCert })[view.name]();
+}
+
+function vHome(){
+  const cards = Object.entries(COURSES).map(([id,c]) => {
+    const p = prog(id), n = c.lessons.length, pct = p.pass ? 100 : Math.round(p.seen.length / (n+1) * 100);
+    const label = p.pass ? 'Completed' : p.seen.length ? 'In progress' : 'Available now';
+    return `<div class="card course">
+      <span class="tag">${label}</span><h3>${c.title}</h3><p>${c.blurb}</p>
+      <div class="meta">${n} short lessons · ${c.quiz.length}-question quiz · about ${c.mins} minutes</div>
+      <div class="bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
+      <div class="cta" style="margin-top:8px">
+        <button class="btn" data-start="${id}">${p.pass ? 'Review course' : p.seen.length ? 'Continue' : 'Start course'}</button>
+        ${p.pass ? `<button class="btn ghost" data-cert="${id}">Certificate</button>` : ''}
+      </div></div>`;
+  }).join('') + SOON.map(([t,b]) => `<div class="card course soon"><span class="tag">Coming soon</span><h3>${t}</h3><p>${b}</p></div>`).join('');
+
+  app.innerHTML = `
+  <div class="hero"><div class="wrap">
+    <div class="eyebrow">Free for Gellings customers</div>
+    <h1>Train your team in the time it takes to have a <em>brew</em>.</h1>
+    <p>Short, plain-English courses for the people who use our products every day. Work through the lessons on any phone, pass the quiz and print your certificate.</p>
+    <div class="cta"><button class="btn brass" data-start="coshh">Start COSHH training</button><a class="btn light" href="#courses">See all courses</a></div>
+  </div></div>
+
+  <section class="steps"><div class="wrap">
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="card"><b class="n">1</b><h3>Tell us who you are</h3><p>Just your name and workplace. No account, no password to forget.</p></div>
+      <div class="card"><b class="n">2</b><h3>Work through the lessons</h3><p>Bite-size pages you can stop and pick up again on the same device.</p></div>
+      <div class="card"><b class="n">3</b><h3>Pass the quiz</h3><p>Score ${CONFIG.passMark}% or more. You can retake it as often as you need.</p></div>
+      <div class="card"><b class="n">4</b><h3>Get your certificate</h3><p>Print or save it as a PDF, and send your result to your manager.</p></div>
+    </div>
+  </div></section>
+
+  <section id="courses" style="padding-top:0"><div class="wrap">
+    <h2>Courses</h2>
+    <div class="grid">${cards}</div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <h2>For managers</h2>
+    <p style="max-width:62ch">Share this page with your team and ask them to enter your email when they sign in. When they pass, one tap sends you their name, score, date and certificate number for your training records.</p>
+  </div></section>
+
+  <section><div class="wrap" style="max-width:780px">
+    <h2>Questions</h2>
+    <details><summary>Does it cost anything?</summary><p>No. The training is free for Gellings customers and their staff.</p></details>
+    <details><summary>Do I need an account?</summary><p>No. Your progress is stored on the device you use, so finish a course on the same phone, tablet or computer you started on.</p></details>
+    <details><summary>Is the certificate an accredited qualification?</summary><p>No. It is a certificate of completion showing you have taken awareness training and passed the quiz. It sits alongside your employer's own induction and COSHH assessments.</p></details>
+    <details><summary>What if I fail the quiz?</summary><p>You'll see which answers to look at again, and you can retake it straight away.</p></details>
+  </div></section>`;
+
+  app.querySelectorAll('[data-start]').forEach(b => b.onclick = () => start(b.dataset.start));
+  app.querySelectorAll('[data-cert]').forEach(b => b.onclick = () => go({ name:'cert', id:b.dataset.cert }));
+}
+
+function sideHTML(id, cur){
+  const c = COURSES[id], p = prog(id), n = c.lessons.length, all = p.seen.length >= n;
+  const pct = p.pass ? 100 : Math.round(p.seen.length / (n+1) * 100);
+  return `<aside class="card side">
+    <div class="eyebrow" style="margin:0">Course</div><h3 style="margin:.2em 0">${c.title}</h3>
+    <div class="bar"><i style="width:${pct}%"></i></div><div class="hint">${pct}% complete</div>
+    <ol>${c.lessons.map((l,i) => `<li class="${p.seen.includes(i)?'done':''}"><button data-i="${i}" class="${cur===i?'cur':''}"><span class="dot">${p.seen.includes(i)?'✓':i+1}</span>${l.t}</button></li>`).join('')}
+      <li class="${p.pass?'done':''}"><button data-quiz class="${cur==='quiz'?'cur':''}" ${all?'':'disabled'}><span class="dot">${p.pass?'✓':'?'}</span>Final quiz</button></li>
+    </ol></aside>`;
+}
+function wireSide(id){
+  app.querySelectorAll('[data-i]').forEach(b => b.onclick = () => go({ name:'course', id, i:+b.dataset.i }));
+  const q = app.querySelector('[data-quiz]'); if (q) q.onclick = () => go({ name:'quiz', id });
+}
+
+function vCourse(){
+  const { id, i } = view, c = COURSES[id], p = prog(id), l = c.lessons[i], n = c.lessons.length;
+  if (!p.seen.includes(i)) { p.seen.push(i); save(); }
+  app.innerHTML = `<div class="wrap player">${sideHTML(id,i)}
+    <article class="card lesson">
+      <div class="eyebrow">Lesson ${i+1} of ${n}</div><h2>${l.t}</h2>${l.h}
+      <div class="nav">
+        <button class="btn ghost" id="prev" ${i===0?'disabled':''}>Back</button>
+        <button class="btn" id="next">${i===n-1?'Go to the quiz':'Next lesson'}</button>
+      </div>
+    </article></div>`;
+  wireSide(id);
+  $('#prev').onclick = () => go({ name:'course', id, i:i-1 });
+  $('#next').onclick = () => i===n-1 ? go({ name:'quiz', id }) : go({ name:'course', id, i:i+1 });
+}
+
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+
+function vQuiz(){
+  const { id } = view, c = COURSES[id], p = prog(id);
+  const qs = shuffle(c.quiz).map(q => ({ ...q, opts: shuffle(q.a), right: q.a[0] }));
+  app.innerHTML = `<div class="wrap player">${sideHTML(id,'quiz')}
+    <form class="card" id="quiz">
+      <div class="eyebrow">Final quiz</div><h2>${c.title}</h2>
+      <p>${qs.length} questions. You need ${CONFIG.passMark}% to pass. Take your time.</p>
+      ${qs.map((q,i) => `<fieldset class="q" style="border:0;padding:0;margin:0 0 22px"><legend><h3>${i+1}. ${q.q}</h3></legend>
+        ${q.opts.map((o,j) => `<label class="opt"><input type="radio" name="q${i}" value="${j}" required><span>${o}</span></label>`).join('')}
+        <p class="why" hidden></p></fieldset>`).join('')}
+      <div class="nav"><span></span><button class="btn">Submit answers</button></div>
+    </form></div>`;
+  wireSide(id);
+  $('#quiz').onsubmit = e => {
+    e.preventDefault();
+    let score = 0;
+    qs.forEach((q,i) => {
+      const fs = e.target.querySelectorAll('fieldset')[i], pick = +e.target['q'+i].value, ok = q.opts[pick] === q.right;
+      if (ok) score++;
+      fs.querySelectorAll('.opt').forEach((el,j) => { el.querySelector('input').disabled = true; if (j===pick) el.classList.add(ok?'right':'wrong'); });
+      const w = fs.querySelector('.why'); w.hidden = false; w.textContent = (ok ? 'Correct. ' : 'Look again: ') + q.why;
+    });
+    const pct = Math.round(score/qs.length*100), passed = pct >= CONFIG.passMark;
+    p.best = Math.max(p.best, pct);
+    if (passed && !p.pass) {
+      const d = new Date(), ymd = d.toISOString().slice(0,10).replace(/-/g,'');
+      p.pass = { date:d.toISOString(), score:pct, cert:`GEL-${c.code}-${ymd}-${Math.random().toString(36).slice(2,6).toUpperCase()}` };
+    } else if (passed) p.pass.score = Math.max(p.pass.score, pct);
+    save();
+    e.target.querySelector('.nav').outerHTML = `<div class="card result" style="background:${passed?'#eaf6ef':'#fdf1ee'}">
+      <div class="score">${pct}%</div>
+      <h3>${passed ? 'Well done, you passed.' : 'Not quite there yet.'}</h3>
+      <p>${score} out of ${qs.length} correct. ${passed ? '' : 'Review the answers above, revisit any lessons you need, and try again.'}</p>
+      <button type="button" class="btn ${passed?'brass':''}" id="after">${passed?'View my certificate':'Retake the quiz'}</button></div>`;
+    $('#after').onclick = () => go(passed ? { name:'cert', id } : { name:'quiz', id });
+    $('#after').scrollIntoView({ behavior:'smooth', block:'center' });
+  };
+}
+
+function vCert(){
+  const { id } = view, c = COURSES[id], p = prog(id);
+  if (!p.pass || !S.user) return go({ name:'home' });
+  const date = new Date(p.pass.date).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  const body = `Training result\n\nName: ${S.user.name}\nWorkplace: ${S.user.company}\nCourse: ${c.title}\nScore: ${p.pass.score}%\nDate passed: ${date}\nCertificate no: ${p.pass.cert}\n\nSent from the Gellings Training Academy.`;
+  const to = [S.user.manager, CONFIG.resultsEmail].filter(Boolean).join(',');
+  const mail = `mailto:${to}?subject=${encodeURIComponent('Training completed: ' + c.title + ' - ' + S.user.name)}&body=${encodeURIComponent(body)}`;
+  app.innerHTML = `<div class="wrap">
+    <div class="cert">
+      <div class="logo">Gellings</div><div class="sub">Training Academy</div>
+      <h2>Certificate of Completion</h2>
+      <p>This certifies that</p>
+      <div class="name">${esc(S.user.name)}</div>
+      <p>of <b>${esc(S.user.company)}</b><br>has completed the awareness course and passed the assessment for</p>
+      <h3 style="font-size:1.5rem">${c.title}</h3>
+      <dl><div><dt>Date</dt><dd>${date}</dd></div><div><dt>Score</dt><dd>${p.pass.score}%</dd></div><div><dt>Certificate no.</dt><dd>${p.pass.cert}</dd></div></dl>
+      <p class="small">Awareness training provided by Gellings, Braddan, Isle of Man. Not an accredited qualification. Refresher training is recommended every 12 months.</p>
+    </div>
+    <div class="cta noprint" style="justify-content:center;margin-bottom:50px">
+      <button class="btn" id="print">Print or save as PDF</button>
+      <a class="btn brass" href="${mail}">Email my result</a>
+      <button class="btn ghost" id="back">Back to courses</button>
+    </div></div>`;
+  $('#print').onclick = () => window.print();
+  $('#back').onclick = () => go({ name:'home' });
+}
+
+render();
+</script>
+</body>
+</html>
