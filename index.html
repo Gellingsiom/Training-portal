@@ -368,6 +368,109 @@ const COURSES = {
       { q:'A fridge reads 11°C at your morning check. What should you do?', a:['Act on it, tell the person in charge and record what was done','Write down 5°C so the record looks right','Ignore it until the next check','Open the door to let it settle'], why:'Records must be honest. Take action, report it and note what you did.' }
     ]
   },
+  allergy: {
+    title: 'Allergen Awareness',
+    blurb: 'The 14 allergens, cross-contact, taking an allergy order safely, and what to do if a customer reacts.',
+    mins: 20,
+    code: 'ALG',
+    lessons: [
+      { t: 'Allergies, intolerances and why it matters', h: `
+        <p>A <b>food allergy</b> is when the body's immune system reacts to a food as if it were harmful. Reactions can start within minutes and range from an itchy mouth or rash to swelling, difficulty breathing and collapse. A severe reaction is called <b>anaphylaxis</b> and can kill.</p>
+        <table>
+          <tr><th>Food allergy</th><td>An immune reaction. A tiny trace can be enough, and it can be life-threatening</td></tr>
+          <tr><th>Food intolerance</th><td>Not an immune reaction, usually digestive, such as lactose intolerance. Unpleasant but not usually life-threatening</td></tr>
+          <tr><th>Coeliac disease</th><td>An autoimmune condition triggered by gluten. It damages the gut even when there are no obvious symptoms</td></tr>
+        </table>
+        <p>You can't tell which one a customer has, or how severe it is, so <b>treat every allergy request as serious</b>.</p>
+        <div class="key"><b>Key points</b>Getting it wrong can kill a customer. Getting it right builds trust, and allergen information is part of what food hygiene inspectors look at.</div>` },
+      { t: 'The 14 allergens', h: `
+        <p>Food businesses must be able to tell customers if a dish contains any of these 14 allergens:</p>
+        <table>
+          <tr><th>Celery</th><td>Including celeriac, celery salt and many stocks and soups</td></tr>
+          <tr><th>Cereals containing gluten</th><td>Wheat, rye, barley and oats. Bread, pasta, batter, sauces, gravy</td></tr>
+          <tr><th>Crustaceans</th><td>Prawns, crab, lobster, scampi</td></tr>
+          <tr><th>Eggs</th><td>Mayonnaise, cakes, pasta, glazes</td></tr>
+          <tr><th>Fish</th><td>Including fish sauce and Worcestershire sauce</td></tr>
+          <tr><th>Lupin</th><td>A flour sometimes used in bread and pastries</td></tr>
+          <tr><th>Milk</th><td>Butter, cheese, cream, yoghurt, milk powder</td></tr>
+          <tr><th>Molluscs</th><td>Mussels, oysters, squid, oyster sauce</td></tr>
+          <tr><th>Mustard</th><td>Dressings, marinades, sauces</td></tr>
+          <tr><th>Peanuts</th><td>Groundnut oil, satay, some sauces and desserts</td></tr>
+          <tr><th>Sesame</th><td>Seeds, oil, tahini, hummus</td></tr>
+          <tr><th>Soya</th><td>Soy sauce, tofu, many processed foods</td></tr>
+          <tr><th>Sulphites</th><td>Sulphur dioxide in wine, dried fruit, some drinks and processed meats</td></tr>
+          <tr><th>Tree nuts</th><td>Almonds, hazelnuts, walnuts, cashews, pecans, pistachios and more</td></tr>
+        </table>
+        <h3>Hidden allergens</h3>
+        <p>Allergens often hide in sauces, stocks, dressings, marinades, garnishes, bought-in products and cooking oil. That's why you check the <b>ingredients label of every component</b>, not just the main ingredients.</p>
+        <div class="key"><b>Key points</b>Keep an up-to-date allergen record or matrix for every dish, and update it whenever a recipe, product or supplier changes.</div>` },
+      { t: 'Cross-contact in the kitchen', h: `
+        <p><b>Cross-contact</b> is when an allergen gets into a food that shouldn't contain it. Cooking does <b>not</b> destroy allergens, so prevention is the only control.</p>
+        <h3>Common ways it happens</h3>
+        <ul>
+          <li>Shared <b>fryer oil</b>, such as battered fish fried in the same oil as chips</li>
+          <li>Shared boards, knives, tongs, ladles, toasters and griddles</li>
+          <li>Gloves and hands that have touched another food</li>
+          <li>Crumbs, flour dust and splashes on worktops</li>
+          <li>Open containers and scoops in dry stores</li>
+          <li>Garnishes added at the pass</li>
+        </ul>
+        <h3>How to prevent it</h3>
+        <ul>
+          <li>Wash hands and change gloves before preparing an allergy order</li>
+          <li>Clean and sanitise the worktop first, and use clean or dedicated equipment. Many kitchens keep <b>purple</b> boards and knives for allergen-free preparation</li>
+          <li>Prepare allergy orders first or separately, away from other cooking</li>
+          <li>Store allergen ingredients in sealed, labelled containers, on lower shelves</li>
+          <li>If you can't avoid cross-contact, such as with shared fryer oil, <b>tell the customer honestly</b></li>
+        </ul>
+        <div class="warn"><b>"Gluten-free" and "nut-free" are promises</b>Only describe a dish as free from an allergen if your business has the controls to back it up. "Gluten-free" is a legal claim with a strict limit.</div>` },
+      { t: 'Taking an allergy order', h: `
+        <p>Most allergy incidents come from a breakdown in communication between the customer, front of house and the kitchen.</p>
+        <ol>
+          <li><b>Ask.</b> Invite customers to tell you about allergies, for example with a note on the menu and by asking when taking the order</li>
+          <li><b>Listen and record.</b> Write the allergen clearly on the order ticket or system. Don't rely on memory</li>
+          <li><b>Check.</b> Use the allergen matrix or ask the chef or manager. <b>Never guess</b>, and never say "it should be fine"</li>
+          <li><b>Tell the kitchen</b> directly, as well as on the ticket</li>
+          <li><b>Prepare it safely</b>, as in the last lesson</li>
+          <li><b>Serve it separately</b> and confirm it's the allergy order. Ideally the person who took the order serves it</li>
+        </ol>
+        <h3>If you're not sure</h3>
+        <p>Say so. "I'm sorry, I can't be certain that dish is safe for you" is far better than a guess. Offer a dish you <b>can</b> be sure of, or none.</p>
+        <h3>Deliveries and substitutions</h3>
+        <p>If a supplier sends a substitute product or a recipe changes, check the label and update the allergen record <b>before</b> the product is used.</p>
+        <div class="key"><b>Key points</b>Ask, record, check, tell the kitchen, prepare safely, serve separately.</div>` },
+      { t: 'If a customer has a reaction', h: `
+        <h3>Signs of a severe reaction (anaphylaxis)</h3>
+        <ul>
+          <li>Swelling of the lips, tongue, face or throat</li>
+          <li>Difficulty breathing, wheezing, or a hoarse voice</li>
+          <li>Feeling faint, dizzy or confused, or collapsing</li>
+          <li>Pale or clammy skin, often with a rash or hives</li>
+        </ul>
+        <div class="warn"><b>Act immediately</b>Call 999 and say "anaphylaxis". If the person has an adrenaline auto-injector, help them use it or follow its instructions. Don't wait to see if it gets better.</div>
+        <h3>While you wait for help</h3>
+        <ul>
+          <li>Don't make them stand or walk. Let them lie down with their legs raised, or sit up if that helps their breathing</li>
+          <li>Stay with them, and alert your first aider</li>
+          <li>A second dose from an auto-injector may be needed after 5 minutes if there's no improvement and they have one</li>
+          <li>Keep the dish and the order details. They will be needed later</li>
+        </ul>
+        <p>Afterwards, report the incident to your manager so the cause can be found and fixed.</p>
+        <div class="key"><b>Key points</b>Severe reactions can get worse fast. Call 999 first, every time.</div>` }
+    ],
+    quiz: [
+      { q:'How many allergens must food businesses be able to give information about?', a:['14','4','8','20'], why:'There are 14 allergens that must be declared.' },
+      { q:'Which of these is one of the 14 allergens?', a:['Sesame','Tomato','Chicken','Rice'], why:'Sesame is one of the 14. The others listed are not.' },
+      { q:'What is the main difference between an allergy and an intolerance?', a:['An allergy is an immune reaction and can be life-threatening','There is no difference','An intolerance is always more serious','An allergy only causes a mild stomach ache'], why:'Allergies involve the immune system and a trace can trigger anaphylaxis.' },
+      { q:'Does cooking destroy allergens?', a:['No, cooking does not remove allergens','Yes, if cooked above 75°C','Yes, if fried','Only nuts are destroyed by cooking'], why:'Allergens survive cooking, so preventing cross-contact is the only control.' },
+      { q:'Battered fish and chips are cooked in the same fryer oil. What does that mean for a customer with a fish allergy?', a:['The chips may contain fish allergen, and you must tell them','The chips are completely safe','Only the batter is a risk','Hot oil removes any risk'], why:'Shared fryer oil is a common cause of cross-contact.' },
+      { q:'A customer asks whether a sauce contains nuts and you don’t know. What should you say?', a:['That you’ll check the allergen information or ask the chef','"It should be fine"','"No" to keep them happy','"Nobody else has complained"'], why:'Never guess. Check, and if you can’t be sure, say so.' },
+      { q:'Where should an allergy be recorded when taking an order?', a:['Clearly on the order ticket or system, and told directly to the kitchen','Nowhere, just remember it','Only on the bill','On a sticky note at the bar'], why:'Written and spoken communication with the kitchen prevents mistakes.' },
+      { q:'Your supplier sends a different brand of mayonnaise. What should happen before it’s used?', a:['Check its label and update the allergen record','Nothing, mayonnaise is mayonnaise','Use it up quickly','Throw away the old allergen record'], why:'Different products can contain different allergens.' },
+      { q:'A customer’s lips swell and they struggle to breathe after eating. What is the first thing to do?', a:['Call 999 and say "anaphylaxis"','Give them a glass of water and wait','Ask them to walk outside for fresh air','Offer them a different dish'], why:'Anaphylaxis is an emergency. Call 999 and help with an auto-injector if they have one.' },
+      { q:'When can you describe a dish as "gluten-free"?', a:['Only when your business has controls in place to back up the claim','Whenever it has no bread in it','If the customer asks you to','Any time, it’s just a description'], why:'"Gluten-free" is a legal claim with a strict limit.' }
+    ]
+  },
   coshh: {
     title: 'COSHH & Safe Use of Chemicals',
     blurb: 'The science of cleaning, reading a label, the right PPE, what to do in an accident, and the 10 golden rules.',
@@ -859,6 +962,114 @@ const COURSES = {
       { q:'Floor pad colours are the same for every manufacturer. True or false?', a:['False: check the chart for the pads you use','True: white is always for stripping','True: all pads do the same job','False: pad colour is just for decoration'], why:'There’s a typical guide, but colours vary, and the wrong pad can damage a floor.' }
     ]
   },
+  dish: {
+    title: 'Dishwasher & Glasswasher Care',
+    blurb: 'Spotless plates and sparkling glasses: loading, temperatures, chemicals, daily cleaning and fixing common problems.',
+    mins: 20,
+    code: 'DISH',
+    lessons: [
+      { t: 'How a commercial machine works', h: `
+        <p>A commercial dishwasher or glasswasher cleans with the same four things as any cleaning job: <b>water, chemical, mechanical action and time</b>.</p>
+        <table>
+          <tr><th>Wash</th><td>Hot water and <b>detergent</b> sprayed through the wash arms to remove food soil and grease</td></tr>
+          <tr><th>Rinse</th><td>Clean, hotter water with <b>rinse aid</b>. It rinses away detergent and helps the water run off so items dry without spots</td></tr>
+          <tr><th>Dry</th><td>Items air dry using their own heat</td></tr>
+        </table>
+        <h3>Temperatures</h3>
+        <p>Check the temperature gauges on your machine and know what they should read. As a guide, commercial dishwashers usually wash at around 55 to 65&deg;C with a hotter final rinse of around 80 to 85&deg;C. Glasswashers run cooler. <b>Follow the settings your machine's maker and your service engineer give you.</b></p>
+        <p>If the temperature is low, items won't come out clean or dry properly. Report it.</p>
+        <div class="key"><b>Key points</b>Hot enough, the right chemicals, and enough time. If any of these drops, results drop.</div>` },
+      { t: 'Loading for results', h: `
+        <h3>Prepare</h3>
+        <ul>
+          <li><b>Scrape</b> food into the bin first. Food in the machine blocks filters and dirties the water</li>
+          <li>Pre-rinse heavily soiled items with a spray arm if you have one. <b>Don't</b> use washing-up liquid for pre-rinsing; it causes foam in the machine</li>
+          <li>Soak dried-on or burnt items separately first</li>
+        </ul>
+        <h3>Load</h3>
+        <ul>
+          <li>Use the right rack: plate racks, cup racks and cutlery baskets</li>
+          <li>Plates upright, facing the same way, so the spray reaches every surface</li>
+          <li>Cups, bowls and glasses <b>upside down</b></li>
+          <li>Don't overload or stack items on top of each other</li>
+          <li>Cutlery loose in baskets, mixed up so pieces don't nest together</li>
+        </ul>
+        <h3>Unload</h3>
+        <ul>
+          <li>Let items dry in the rack. Don't dry with tea towels, which spread germs and leave lint</li>
+          <li>Wash your hands before unloading clean items</li>
+          <li>Handle cutlery by the handles and glasses by the base, not the rim</li>
+          <li>Check each item and re-wash anything still dirty</li>
+        </ul>
+        <div class="key"><b>Key points</b>Scrape, rack properly, don't overload, air dry.</div>` },
+      { t: 'Chemicals and changing drums', h: `
+        <p>Most machines are fed automatically from drums by a dosing pump, using a <b>detergent</b> and a <b>rinse aid</b>. Some use a separate product for glasswashers.</p>
+        <h3>Changing a drum safely</h3>
+        <ol>
+          <li>Wear <b>gloves and eye protection</b>. Machine detergents are usually strongly alkaline and corrosive</li>
+          <li>Check you have the <b>right product</b> for the lance. Lances and drums are often colour coded; check the labels match</li>
+          <li>Take the lance out of the empty drum and put it <b>straight into the new drum</b>. Don't lay it on the floor or worktop</li>
+          <li>Screw the cap fitting on securely</li>
+          <li>Prime the pump if your system needs it</li>
+          <li>Rinse empty drums before disposal as your site requires</li>
+        </ol>
+        <div class="warn"><b>Never pour one product into another drum</b>Don't top up or mix drums, and never mix detergent with descaler. Some machine detergents contain chlorine and will give off toxic gas with an acid.</div>
+        <p>If dosing looks wrong, such as foam, no product being used, or a drum emptying very fast, don't adjust the settings yourself. Call your supplier or service engineer.</p>
+        <div class="key"><b>Key points</b>Goggles and gloves on, right product to right lance, straight from old drum to new.</div>` },
+      { t: 'Daily cleaning and descaling', h: `
+        <h3>At the end of every service</h3>
+        <ol>
+          <li>Switch off, drain and let the machine cool</li>
+          <li>Remove, empty and rinse the <b>filters and strainers</b></li>
+          <li>Remove the <b>wash and rinse arms</b>, and clear any blocked jets</li>
+          <li>Wipe the inside, door seals and around the door</li>
+          <li>Refit everything correctly</li>
+          <li><b>Leave the door open</b> overnight so it dries out and doesn't smell</li>
+        </ol>
+        <h3>Change the water</h3>
+        <p>Change the wash water regularly through service, and straight away if it looks dirty or greasy. Dirty water redeposits soil on everything.</p>
+        <h3>Limescale</h3>
+        <p>Hard water leaves limescale on heaters, jets and glasses. It cuts performance and causes cloudy glasses.</p>
+        <ul>
+          <li>If your machine has a <b>water softener</b>, keep it topped up with salt and regenerated as instructed</li>
+          <li><b>Descale</b> as often as your supplier recommends, with the correct descaler, following the instructions and wearing PPE</li>
+          <li>Run the machine through afterwards to rinse all the descaler out</li>
+        </ul>
+        <div class="key"><b>Key points</b>Filters out, arms clean, door open. Keep the softener and descaling on schedule.</div>` },
+      { t: 'Glasses and troubleshooting', h: `
+        <h3>Glass care</h3>
+        <ul>
+          <li>Use a <b>dedicated glasswasher</b> or glass-only cycle. Grease from plates leaves a film that kills the head on beer and the fizz in drinks</li>
+          <li>Empty glasses and remove straws, fruit and napkins first</li>
+          <li>Glasses upside down in an open glass rack, not touching</li>
+          <li>Air dry and store upside down on a clean, ventilated mat or rack</li>
+          <li>A <b>"beer-clean"</b> glass forms rings of lacing as the beer goes down. Bubbles clinging to the inside mean the glass isn't clean</li>
+        </ul>
+        <h3>What's gone wrong?</h3>
+        <table>
+          <tr><th>Still dirty</th><td>Overloaded racks, blocked arms or filters, dirty wash water, low temperature or empty detergent drum</td></tr>
+          <tr><th>Spots and streaks</th><td>Rinse aid empty or wrong dose, or items not air dried</td></tr>
+          <tr><th>Cloudy glasses</th><td>Limescale (check softener and descale), or too much detergent. Try soaking in a descaler solution: if it clears, it's scale</td></tr>
+          <tr><th>Foam in the machine</th><td>Washing-up liquid getting in from pre-rinsing, or the wrong product</td></tr>
+          <tr><th>Smells</th><td>Filters not cleaned, door kept shut overnight, or food debris in the machine</td></tr>
+          <tr><th>Lipstick on glasses</th><td>Pre-treat by hand. Machines struggle to remove it</td></tr>
+        </table>
+        <p>Still stuck? Gellings can check your dosing and products. Call 01624 671200.</p>
+        <div class="key"><b>Key points</b>Glasses only in the glasswasher, air dry, and most problems come back to temperature, dosing, scale or dirty filters.</div>` }
+    ],
+    quiz: [
+      { q:'What does rinse aid do?', a:['Helps water run off so items dry without spots','Removes heavy grease','Kills all bacteria by itself','Softens the water'], why:'Rinse aid helps water sheet off for spot-free drying.' },
+      { q:'What should you do before loading plates into the dishwasher?', a:['Scrape food into the bin','Wash them by hand with washing-up liquid','Dry them with a tea towel','Nothing, the machine does it all'], why:'Food left on plates blocks filters and dirties the wash water.' },
+      { q:'Why shouldn’t you pre-rinse with washing-up liquid?', a:['It causes foam in the machine','It makes the plates too clean','It is too expensive','It turns the glasses blue'], why:'Hand dishwash liquid foams heavily and stops the machine working properly.' },
+      { q:'How should cups and glasses be loaded?', a:['Upside down','The right way up','On their side','Stacked inside each other'], why:'Upside down lets water spray inside and drain away.' },
+      { q:'How should clean items be dried?', a:['Air dried in the rack','With a tea towel','With a paper towel inside each glass','In a hot oven'], why:'Tea towels spread germs and lint.' },
+      { q:'What PPE should you wear to change a detergent drum?', a:['Gloves and eye protection','None, it’s only detergent','Just an apron','A hairnet'], why:'Machine detergents are usually corrosive. Protect your hands and eyes.' },
+      { q:'When changing drums, what should you do with the lance?', a:['Move it straight from the empty drum into the new one','Lay it on the worktop while you open the drum','Rinse it in the sink','Leave it in the empty drum until tomorrow'], why:'This avoids drips of concentrate and contamination.' },
+      { q:'What should you do with the machine door at the end of the day?', a:['Leave it open so the machine dries out','Shut it tight to keep dust out','Take it off','Tape it closed'], why:'An open door lets the inside dry and stops smells developing.' },
+      { q:'Glasses keep coming out cloudy. What is a common cause?', a:['Limescale from hard water','Too much rinse aid making them sparkle','Using a glass-only cycle','Air drying'], why:'Scale is a common cause of cloudiness. Check the softener and descale.' },
+      { q:'Why should glasses not go through the same wash as greasy plates?', a:['Grease leaves a film that kills the head on beer and fizz in drinks','Plates are too heavy','Glasses scratch plates','It uses too much water'], why:'A dedicated glasswasher or glass cycle keeps glasses "beer-clean".' }
+    ]
+  },
   mh: {
     title: 'Manual Handling',
     blurb: 'Lifting, carrying, pushing and stacking deliveries without hurting your back.',
@@ -963,6 +1174,116 @@ const COURSES = {
       { q:'A case of chemicals is too heavy to carry comfortably. Which is a safe option?', a:['Open the case and carry the bottles separately, or use a trolley','Decant the chemicals into unlabelled bottles','Drag it across the floor by the strap','Carry it anyway and rest halfway'], why:'Split the load or use equipment. Never decant into unlabelled containers.' },
       { q:'When should you report back or shoulder pain from work?', a:['Early, before it becomes an injury','Only if you need time off','Never, it’s part of the job','Only at your annual review'], why:'Early reporting means the task can be changed before real damage is done.' }
     ]
+  },
+  super: {
+    title: 'Supervisor Essentials',
+    blurb: 'For team leaders and managers: cleaning schedules, checking standards, COSHH assessments, training records and new starters.',
+    mins: 30,
+    code: 'SUP',
+    lessons: [
+      { t: 'The supervisor’s role', h: `
+        <p>A supervisor makes sure cleaning and hygiene are done <b>to the right standard, safely, and can be proved</b>. You don't have to do every job yourself, but you are responsible for making sure it gets done.</p>
+        <h3>What that means day to day</h3>
+        <ul>
+          <li><b>Plan</b> the work, with clear cleaning schedules</li>
+          <li><b>Equip</b> the team, with the right products, equipment and PPE in stock and in good condition</li>
+          <li><b>Train</b> them, and keep records of it</li>
+          <li><b>Check</b> standards, and give feedback</li>
+          <li><b>Keep people safe</b>, with COSHH assessments, accident reporting and safe systems of work</li>
+          <li><b>Record</b> it all, because inspectors and clients will ask</li>
+        </ul>
+        <div class="key"><b>Key points</b>If it isn't written down, you can't show it happened. Good supervision turns good habits into evidence.</div>
+        <p class="hint">This course is general good practice. It doesn't replace legal advice or your organisation's own policies.</p>` },
+      { t: 'Cleaning schedules', h: `
+        <p>A cleaning schedule tells everyone exactly what needs cleaning, and gives you a record that it was done.</p>
+        <h3>A good schedule says</h3>
+        <table>
+          <tr><th>What</th><td>Each area, surface and item, including the easily forgotten ones: vents, behind equipment, high-level surfaces, touch points</td></tr>
+          <tr><th>How</th><td>The method, the product, its dilution and contact time, and the colour of equipment</td></tr>
+          <tr><th>How often</th><td>After use, daily, weekly, monthly or periodically</td></tr>
+          <tr><th>Who</th><td>The role or person responsible</td></tr>
+          <tr><th>PPE</th><td>What to wear for that task</td></tr>
+          <tr><th>Signed</th><td>Initials and date or time when it's done, and your check</td></tr>
+        </table>
+        <h3>Making it work</h3>
+        <ul>
+          <li>Base it on a walk round the site, not a template alone</li>
+          <li>Display it where the work is done, with the colour-coding chart</li>
+          <li>Keep it realistic for the hours and staff you actually have</li>
+          <li>Review it when something changes: new equipment, new products, a complaint, or an inspection finding</li>
+          <li>Keep completed sheets for as long as your organisation requires</li>
+        </ul>
+        <div class="key"><b>Key points</b>What, how, how often, who, and signed off. Review it whenever things change.</div>` },
+      { t: 'Checking standards', h: `
+        <p>Regular checks catch problems before customers or inspectors do, and show the team that standards matter.</p>
+        <h3>Ways to check</h3>
+        <ul>
+          <li><b>Daily walk-rounds</b> of key areas, especially washrooms, kitchens and entrances</li>
+          <li><b>Spot checks</b> on specific tasks, such as touch points, under equipment, or behind toilets</li>
+          <li><b>Scored audits</b>, monthly or quarterly, using the same checklist each time so you can see trends</li>
+          <li>Checking the <b>records</b> too: are schedules, temperature logs and washroom sheets complete and honest?</li>
+        </ul>
+        <h3>Giving feedback</h3>
+        <ul>
+          <li>Praise good work specifically, not just "good job"</li>
+          <li>When something's wrong, focus on the task, not the person. Show what good looks like</li>
+          <li>Find the cause. Is it time, training, equipment, or products? Fix that, not just the symptom</li>
+          <li>Follow up to make sure the fix has worked</li>
+        </ul>
+        <div class="key"><b>Key points</b>Check little and often, record what you find, and fix the cause.</div>` },
+      { t: 'COSHH assessments and safety records', h: `
+        <p>Your organisation needs to assess the risks from hazardous substances its staff use. As a supervisor you may write these assessments or help keep them up to date.</p>
+        <h3>Building your COSHH file</h3>
+        <ol>
+          <li><b>List</b> every chemical used on site. Remove any that aren't needed, and stop staff bringing in their own</li>
+          <li>Get the current <b>Safety Data Sheet</b> for each one. Your supplier must provide them; Gellings can send ours on request</li>
+          <li><b>Assess</b> each product as it's used: the task, who uses it, how often, how they could be exposed, and the controls</li>
+          <li>Record the <b>controls</b>: dilution or dosing system, ventilation, PPE, storage, first aid and spill procedure</li>
+          <li><b>Tell the team</b> and make sure they can find the file</li>
+          <li><b>Review</b> it when products, tasks or people change, after an incident, and at regular intervals</li>
+        </ol>
+        <h3>Other safety records</h3>
+        <ul>
+          <li>Accident and near-miss reports, investigated and acted on</li>
+          <li>PPE issued, and checks that it's in good condition</li>
+          <li>Electrical equipment checks for floor machines and vacuums</li>
+          <li>Manual handling and lone working assessments where relevant</li>
+        </ul>
+        <div class="key"><b>Key points</b>Every product listed, its data sheet on file, assessed, and the team told. Review it when anything changes.</div>` },
+      { t: 'Training and new starters', h: `
+        <h3>Induction</h3>
+        <p>New starters are most at risk in their first weeks. Before they work alone, make sure they have covered:</p>
+        <ul>
+          <li>Site rules, fire procedures, first aid and accident reporting</li>
+          <li>COSHH: the products they'll use, how to read labels, PPE and the 10 golden rules</li>
+          <li>Colour coding and the cleaning schedules for their areas</li>
+          <li>How to use any machines, with training before first use</li>
+          <li>Food hygiene basics if they work in or near food areas</li>
+          <li>Who to ask, and how to report a problem</li>
+        </ul>
+        <p>Pair them with an experienced colleague, then check their work before signing them off.</p>
+        <h3>Ongoing training</h3>
+        <ul>
+          <li>Refresh key training regularly. Once a year is a good rule for COSHH and food hygiene</li>
+          <li>Retrain when products, equipment or methods change, or after an incident</li>
+          <li>Use this Training Academy: ask each team member to put your email in when they sign in, so their results come to you</li>
+        </ul>
+        <h3>Training records</h3>
+        <p>For each person, keep what training they've had, when, and the evidence, such as a certificate or signed sheet. Inspectors, insurers and clients may all ask to see it.</p>
+        <div class="key"><b>Key points</b>Train before they work alone, refresh yearly, and keep the evidence.</div>` }
+    ],
+    quiz: [
+      { q:'What is the supervisor’s main responsibility for cleaning?', a:['Making sure it’s done to standard, safely, and can be proved','Doing every cleaning job personally','Only ordering products','Signing sheets without checking'], why:'Supervisors plan, equip, train, check and record.' },
+      { q:'Which of these should a cleaning schedule include?', a:['What, how, how often, who, and a sign-off','Only the list of rooms','Staff holiday dates','The price of each product'], why:'A complete schedule tells staff exactly what to do and records that it was done.' },
+      { q:'When should a cleaning schedule be reviewed?', a:['When equipment, products, staff or findings change','Never, once it’s written','Only every five years','Only if a customer complains twice'], why:'Schedules must stay accurate to how the site actually works.' },
+      { q:'A washroom keeps failing spot checks. What is the best first step?', a:['Find the cause: time, training, equipment or products','Shout at the cleaner','Stop doing spot checks','Remove the washroom checklist'], why:'Fix the root cause, then follow up.' },
+      { q:'What is the first step in building a COSHH file?', a:['List every chemical used on site','Buy new PPE','Throw away the data sheets','Ask staff to bring their own products'], why:'You can’t assess what you haven’t listed.' },
+      { q:'Who must provide Safety Data Sheets for hazardous products?', a:['The supplier','The cleaner','The customer','No one, they’re optional'], why:'Suppliers must provide them. Gellings can send ours on request.' },
+      { q:'When should a COSHH assessment be reviewed?', a:['When products, tasks or people change, after an incident, and regularly','Only when an inspector visits','Never','Only if a product runs out'], why:'Assessments must reflect current products and practice.' },
+      { q:'Before a new starter works alone, what should they have had?', a:['An induction covering site rules, COSHH, colour coding and equipment','Nothing, they can learn as they go','Just a uniform','A copy of the price list'], why:'New starters are most at risk early on.' },
+      { q:'How often is a good rule for refreshing COSHH and food hygiene training?', a:['Once a year','Once every ten years','Only at induction','Never'], why:'Annual refreshers keep knowledge current.' },
+      { q:'What should a training record show?', a:['What training each person had, when, and the evidence','Only their name','Their home address','How fast they clean'], why:'Inspectors, insurers and clients may ask to see proof of training.' }
+    ]
   }
 };
 
@@ -1050,6 +1371,8 @@ function vHome(){
   <section class="band"><div class="wrap">
     <h2>For managers</h2>
     <p style="max-width:62ch">Share this page with your team and ask them to enter your email when they sign in. When they pass, one tap sends you their name, score, date and certificate number for your training records.</p>
+    <p style="max-width:62ch">Supervisors and team leaders: our <b>Supervisor Essentials</b> course covers cleaning schedules, standards checks, COSHH assessments and training records.</p>
+    <div class="cta"><button class="btn brass" data-start="super">Start Supervisor Essentials</button></div>
   </div></section>
 
   <section><div class="wrap" style="max-width:780px">
