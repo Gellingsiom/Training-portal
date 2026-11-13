@@ -30,7 +30,9 @@ header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
 .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;cursor:pointer;background:none;border:0;padding:0}
 .brand b{font:700 1.35rem Fraunces,serif;letter-spacing:.01em}
-.brand span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border-left:1px solid rgba(255,255,255,.25);padding-left:10px}
+.brand span{white-space:nowrap;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border-left:1px solid rgba(255,255,255,.25);padding-left:10px}
+.who span{max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){.who span{display:none}}
 .who{font-size:.85rem;display:flex;align-items:center;gap:10px}
 .who button{background:none;border:0;color:var(--teal);font:600 .85rem Inter;cursor:pointer;padding:6px}
 
@@ -93,6 +95,8 @@ input[type=text],input[type=email]{width:100%;padding:12px 14px;border:1.5px sol
 .pic b{display:block;color:var(--navy)}
 table{border-collapse:collapse;width:100%;margin:0 0 1em;font-size:.93rem}
 td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:#f1ede2}
+.sw{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.sw i{flex:0 0 34px;height:34px;border-radius:8px;border:1px solid rgba(0,0,0,.2)}
 
 /* quiz */
 .q{margin-bottom:22px}.q h3{font:600 1.02rem Inter;color:var(--ink);margin-bottom:10px}
@@ -139,7 +143,7 @@ td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-ali
 <footer>
   <div class="wrap">
     <p><b>Gellings</b> · Hygiene &amp; hospitality trade supplies since 1965<br>
-    Unit 4, Kirby Farm Industrial Estate, Braddan, Isle of Man</p>
+    Unit 4, Kirby Farm Industrial Estate, Braddan, Isle of Man<br>01624 671200 · <a href="mailto:info@gellings.im" style="color:#54b2ac">info@gellings.im</a></p>
     <p>These courses give general awareness training. They support, and do not replace, your employer's own risk assessments, site rules and the product label and safety data sheet.</p>
   </div>
 </footer>
@@ -164,7 +168,7 @@ td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-ali
 <script>
 /* ============ SETTINGS (edit these) ============ */
 const CONFIG = {
-  resultsEmail: '',          // Gellings inbox that should receive completion results, e.g. 'someone@yourdomain'
+  resultsEmail: 'info@gellings.im',          // Gellings inbox that should receive completion results, e.g. 'someone@yourdomain'
   passMark: 80,              // % needed to pass
   storeKey: 'gellingsTraining.v1'
 };
@@ -173,12 +177,202 @@ const CONFIG = {
 const SOON = [
   ['Colour Coding & Infection Control','Stop germs travelling between areas with a simple colour system.'],
   ['Washroom Hygiene','Cleaning order, dwell times and the touch points people miss.'],
-  ['Kitchen Hygiene','Clean-as-you-go, sanitiser contact times and food-safe products.'],
   ['Floor Care','Mopping systems, machines, pads and slip prevention.'],
   ['Manual Handling','Lifting, carrying and moving stock without injury.']
 ];
 
 const COURSES = {
+  food: {
+    title: 'Food Hygiene: Aim for 5',
+    blurb: 'Get your kitchen team ready for the Isle of Man Food Hygiene Scheme: handling, temperatures, allergens, cleaning and records.',
+    mins: 30,
+    code: 'FOOD',
+    lessons: [
+      { t: 'The scheme and what inspectors look at', h: `
+        <p>The <b>Isle of Man Food Hygiene Scheme</b> is run by the Department of Environment, Food and Agriculture (DEFA). Inspections and published ratings begin in <b>January 2027</b>, and cafes, restaurants, takeaways and pubs serving meals are all inspected within a short window in early 2027.</p>
+        <h3>The rating scale</h3>
+        <table>
+          <tr><th>5</th><td>Very good</td></tr><tr><th>4</th><td>Good</td></tr><tr><th>3</th><td>Generally satisfactory</td></tr>
+          <tr><th>2</th><td>Improvement necessary</td></tr><tr><th>1</th><td>Major improvement necessary</td></tr><tr><th>0</th><td>Urgent improvement necessary</td></tr>
+        </table>
+        <h3>Three things are assessed</h3>
+        <ul>
+          <li><b>Hygienic food handling:</b> preparation, cooking, reheating, cooling and storage</li>
+          <li><b>Cleanliness and condition of the premises:</b> cleaning, layout, hand-wash facilities, waste and pest control</li>
+          <li><b>Confidence in management:</b> checks and records that show food is safe, and staff who know their food safety</li>
+        </ul>
+        <p>The rating is about hygiene, not the quality of the food or the service. Ratings are published, so customers can see them.</p>
+        <div class="key"><b>Key points</b>Everyone in the kitchen affects the rating. An inspector may ask any member of staff how they do their job safely, so the aim is good habits every day, not a tidy-up on inspection day.</div>
+        <p class="hint">This course is general good practice from Gellings, an independent supplier. It is not official guidance and cannot guarantee a rating. For official information see gov.im/foodhygienescheme.</p>` },
+      { t: 'Personal hygiene and handwashing', h: `
+        <p>People are one of the main ways bacteria and viruses reach food. Clean hands are the single most effective control.</p>
+        <h3>Wash your hands</h3>
+        <ul>
+          <li>Before starting work and before handling ready-to-eat food</li>
+          <li>After handling raw meat, poultry, fish, eggs or unwashed vegetables</li>
+          <li>After the toilet, breaks, eating, smoking or vaping</li>
+          <li>After touching bins, cleaning chemicals, your phone, face or hair</li>
+          <li>After coughing, sneezing or blowing your nose</li>
+        </ul>
+        <h3>How to wash them properly</h3>
+        <ol>
+          <li>Wet hands under warm running water at the <b>hand-wash basin</b>, not a food or pot-wash sink</li>
+          <li>Apply soap and rub all over for about 20 seconds: palms, backs, between fingers, thumbs, fingertips and wrists</li>
+          <li>Rinse, then dry thoroughly with a disposable paper towel</li>
+          <li>Turn the tap off with the towel</li>
+        </ol>
+        <p>Hand sanitiser is an extra, not a replacement. It does not work well on dirty or greasy hands.</p>
+        <h3>Fit for work</h3>
+        <ul>
+          <li>If you have had <b>diarrhoea or vomiting</b>, tell your manager and stay away from food handling until you have been symptom-free for <b>48 hours</b></li>
+          <li>Cover cuts and sores with a <b>blue waterproof plaster</b> so it can be seen if it falls off</li>
+          <li>Wear clean protective clothing, tie hair back and cover it, and keep jewellery to a minimum</li>
+          <li><b>Gloves are not magic.</b> Change them between tasks and wash your hands each time, exactly as you would with bare hands</li>
+        </ul>
+        <div class="key"><b>Key points</b>A hand-wash basin with soap, hot water and paper towels, used often, is one of the first things an inspector checks.</div>` },
+      { t: 'Cross-contamination and colour coding', h: `
+        <p><b>Cross-contamination</b> is when bacteria or allergens move from one food, surface or person onto food that is ready to eat. Because ready-to-eat food will not be cooked again, nothing kills what lands on it.</p>
+        <h3>Keep raw and ready-to-eat apart</h3>
+        <ul>
+          <li>Store raw meat, poultry and fish <b>below</b> ready-to-eat food in the fridge, covered</li>
+          <li>Use separate boards, knives and, where you can, separate prep areas</li>
+          <li>Wash hands and clean and sanitise surfaces between raw and ready-to-eat jobs</li>
+          <li>Do not wash raw chicken. It splashes bacteria around the sink</li>
+        </ul>
+        <h3>Chopping boards: one colour, one job</h3>
+        <div class="sw"><i style="background:#d0221c"></i><span><b>Red</b> Raw meat</span></div>
+        <div class="sw"><i style="background:#1f6fd0"></i><span><b>Blue</b> Raw fish</span></div>
+        <div class="sw"><i style="background:#8a5a2b"></i><span><b>Brown</b> Unwashed vegetables</span></div>
+        <div class="sw"><i style="background:#2e9b4f"></i><span><b>Green</b> Salad and fruit</span></div>
+        <div class="sw"><i style="background:#f2c230"></i><span><b>Yellow</b> Cooked meat</span></div>
+        <div class="sw"><i style="background:#fff"></i><span><b>White</b> Bakery and dairy</span></div>
+        <div class="sw"><i style="background:#7b3fa0"></i><span><b>Purple</b> Allergen-free preparation</span></div>
+        <p style="margin-top:1em">Wash and sanitise boards between jobs, and replace any that are deeply scored, because bacteria hide in the cuts.</p>
+        <h3>Cloths, mops and brushes: right colour, right area</h3>
+        <div class="sw"><i style="background:#d0221c"></i><span><b>Red</b> Toilets, urinals and washroom floors</span></div>
+        <div class="sw"><i style="background:#f2c230"></i><span><b>Yellow</b> Washbasins and washroom surfaces</span></div>
+        <div class="sw"><i style="background:#2e9b4f"></i><span><b>Green</b> Food preparation, food service and bar areas</span></div>
+        <div class="sw"><i style="background:#1f6fd0"></i><span><b>Blue</b> Offices, reception and public areas</span></div>
+        <p style="margin-top:1em">This is the most commonly used scheme. Your business can set its own, as long as it is displayed and everyone sticks to it.</p>
+        <div class="key"><b>Key points</b>Never use a washroom colour in a food area. Store each colour separately.</div>` },
+      { t: 'Temperature control', h: `
+        <p>Most food poisoning bacteria grow fastest between about <b>8&deg;C and 63&deg;C</b>, often called the <b>danger zone</b>. The job is to keep food out of it, or move it through quickly.</p>
+        <table>
+          <tr><th>Chilled storage</th><td>8&deg;C or below. Aim for a fridge running at 5&deg;C or colder.</td></tr>
+          <tr><th>Frozen storage</th><td>&minus;18&deg;C or colder.</td></tr>
+          <tr><th>Cooking</th><td>Core temperature of 75&deg;C for 30 seconds, or 70&deg;C for 2 minutes.</td></tr>
+          <tr><th>Hot holding</th><td>63&deg;C or above.</td></tr>
+          <tr><th>Cooling</th><td>As quickly as possible, ideally within 90 minutes, then into the fridge.</td></tr>
+          <tr><th>Reheating</th><td>Steaming hot all the way through, 75&deg;C or above. Reheat once only.</td></tr>
+        </table>
+        <p class="hint">These are the figures widely used in UK kitchens. Your own food safety pack sets the limits for your site, so follow that if it differs.</p>
+        <h3>Checking and recording</h3>
+        <ul>
+          <li>Check fridge and freezer temperatures at least once a day and write them down</li>
+          <li>Use a <b>clean, sanitised probe</b> in the thickest part of the food, and wipe it with a probe wipe between foods</li>
+          <li>Record cooking, cooling and hot-holding checks as your pack requires</li>
+          <li>If a reading is wrong, <b>act and record what you did</b>: adjust the fridge, move the food, cook for longer, or throw it away</li>
+        </ul>
+        <h3>Everyday habits</h3>
+        <ul>
+          <li>Put deliveries away promptly, chilled and frozen first</li>
+          <li>Don't overload fridges or leave doors open</li>
+          <li>Defrost in the fridge, never on the worktop overnight</li>
+        </ul>
+        <div class="key"><b>Key points</b>A temperature you did not write down is a temperature you cannot prove. Records are what turn good practice into evidence.</div>` },
+      { t: 'Labels, dates and allergens', h: `
+        <h3>Date labels</h3>
+        <ul>
+          <li><b>Use by</b> is about safety. Never serve or use food past its use-by date</li>
+          <li><b>Best before</b> is about quality. Food may be past its best but is not automatically unsafe</li>
+          <li>When you open, decant or prepare food, <b>label it</b> with what it is and the date, plus the use-by your pack sets</li>
+          <li><b>Day labels</b> (Monday to Sunday) make it obvious at a glance what needs using first</li>
+          <li>Rotate stock: <b>first in, first out</b></li>
+        </ul>
+        <h3>The 14 allergens</h3>
+        <p>Customers must be able to find out whether a dish contains any of these:</p>
+        <table>
+          <tr><td>Celery</td><td>Cereals containing gluten</td></tr>
+          <tr><td>Crustaceans</td><td>Eggs</td></tr>
+          <tr><td>Fish</td><td>Lupin</td></tr>
+          <tr><td>Milk</td><td>Molluscs</td></tr>
+          <tr><td>Mustard</td><td>Peanuts</td></tr>
+          <tr><td>Sesame</td><td>Soybeans</td></tr>
+          <tr><td>Sulphur dioxide and sulphites</td><td>Tree nuts</td></tr>
+        </table>
+        <h3>Handling an allergy request</h3>
+        <ul>
+          <li><b>Never guess.</b> Check the allergen information or ask the person in charge, every time</li>
+          <li>Recipes and suppliers change, so check labels on new deliveries</li>
+          <li>Prepare the dish with clean hands, clean equipment and a clean surface. Purple equipment is kept for this</li>
+          <li>Cooking does not remove an allergen, and a tiny trace can be enough to cause a reaction</li>
+          <li>If you cannot be sure a dish is safe, say so honestly</li>
+        </ul>
+        <div class="warn"><b>Allergic reactions can kill</b>If a customer shows signs of a severe reaction such as swelling, difficulty breathing or collapse, call 999 straight away and say "anaphylaxis".</div>
+        <div class="key"><b>Key points</b>Label everything you open or make, and keep allergen information where every member of staff can find it.</div>` },
+      { t: 'Cleaning and sanitising', h: `
+        <p><b>Cleaning</b> removes dirt, grease and food. <b>Sanitising</b> (disinfecting) reduces bacteria to a safe level. A sanitiser cannot work through grease, so food-contact surfaces need both.</p>
+        <h3>The two-stage clean</h3>
+        <ol>
+          <li><b>Clean:</b> remove loose debris, then wash with detergent or a cleaner-sanitiser and rinse or wipe away</li>
+          <li><b>Sanitise:</b> apply sanitiser to the visibly clean surface and leave it for the full <b>contact time</b> on the label before wiping or air drying</li>
+        </ol>
+        <ul>
+          <li>Use a food-safe sanitiser that meets <b>BS EN 1276</b> or <b>BS EN 13697</b></li>
+          <li>Dilute exactly as the label says. Too weak does not work, too strong can taint food</li>
+          <li>Wiping the sanitiser off straight away is the most common mistake. Contact time is often 30 seconds to a few minutes</li>
+        </ul>
+        <h3>Clean as you go, and to a schedule</h3>
+        <ul>
+          <li>Clean and sanitise surfaces and equipment <b>between jobs</b>, especially after raw food</li>
+          <li>Don't forget hand-contact points: fridge handles, taps, switches, probe thermometers and till screens</li>
+          <li>Follow the <b>cleaning schedule</b> for what gets cleaned, how, how often and by whom, and sign it off</li>
+          <li>Use single-use or colour-coded cloths, and change them often</li>
+        </ul>
+        <h3>Waste and pests</h3>
+        <ul>
+          <li>Use lidded, foot-operated bins. Empty them before they overflow and wash your hands afterwards</li>
+          <li>Keep outside bin areas tidy and lids closed</li>
+          <li>Report any sign of pests straight away: droppings, gnawed packaging, flies or insects</li>
+        </ul>
+        <div class="key"><b>Key points</b>Clean first, then sanitise, and give the sanitiser its full contact time. Our COSHH course covers using these chemicals safely.</div>` },
+      { t: 'Records and being inspection-ready', h: `
+        <p>"Confidence in management" is one of the three things assessed. It comes down to whether the business can <b>show</b> that food is kept safe, day in, day out.</p>
+        <h3>What good records look like</h3>
+        <ul>
+          <li>A completed food safety management pack, such as <b>Safer Food Better Business</b></li>
+          <li>Temperature records up to date</li>
+          <li>Cleaning schedule signed off daily</li>
+          <li>Staff training recorded (keep your certificate from this course)</li>
+          <li>Allergen information current and easy to find</li>
+        </ul>
+        <h3>A simple daily check</h3>
+        <table>
+          <tr><th>How food is handled</th><td>Opened and prepared food date-labelled · right colour board and knife · fridge and cooking temperatures checked and recorded · raw and ready-to-eat apart · hands washed before food work and after breaks</td></tr>
+          <tr><th>Premises and cleaning</th><td>Surfaces cleaned and sanitised between jobs · colour-coded cloths in the right areas · hand-wash basin stocked with soap and towels · bins emptied and lidded, no signs of pests · dishwash and floors cleaned to the schedule</td></tr>
+          <tr><th>Management</th><td>Cleaning schedule signed · records up to date · training recorded · allergen information to hand · food safety pack completed</td></tr>
+        </table>
+        <h3>When the inspector visits</h3>
+        <ul>
+          <li>Inspections are normally unannounced. Carry on working as you usually do</li>
+          <li>Answer questions honestly. If you don't know, say so and say who would know</li>
+          <li>Be ready to explain what <b>you</b> do: when you wash your hands, how you check a temperature, what you do with an allergy order</li>
+        </ul>
+        <div class="key"><b>Key points</b>If it is done every day and written down, inspection day is just another day.</div>` }
+    ],
+    quiz: [
+      { q:'Under the Isle of Man Food Hygiene Scheme, what does a rating of 5 mean?', a:['Very good','Urgent improvement necessary','Generally satisfactory','The food tastes excellent'], why:'Ratings run from 5 (very good) to 0 (urgent improvement necessary), and are about hygiene, not taste.' },
+      { q:'Which of these is NOT one of the three things the scheme assesses?', a:['The quality and presentation of the food','Hygienic food handling','Cleanliness and condition of the premises','Confidence in management'], why:'The rating covers handling, premises and management. It does not judge food quality or service.' },
+      { q:'You have had sickness and diarrhoea. When can you go back to handling food?', a:['When you have been symptom-free for 48 hours','As soon as you feel better','The next morning','Straight away if you wear gloves'], why:'Stay away from food handling until 48 hours after symptoms stop, and tell your manager.' },
+      { q:'Where should raw meat be stored in a fridge that also holds ready-to-eat food?', a:['Below the ready-to-eat food, covered','Above the ready-to-eat food','Next to it on the same shelf','Anywhere there is space'], why:'Raw food goes at the bottom so nothing can drip onto ready-to-eat food.' },
+      { q:'In the standard colour code, which chopping board is used for raw meat?', a:['Red','Green','Yellow','White'], why:'Red is raw meat. Yellow is cooked meat, green is salad and fruit, white is bakery and dairy.' },
+      { q:'What temperature should hot food be held at?', a:['63°C or above','At least 37°C','Around 50°C','Any temperature if it is covered'], why:'Hot holding is 63°C or above, which keeps food out of the danger zone.' },
+      { q:'What does a "use by" date tell you?', a:['It is about safety: do not use the food after this date','It is only about quality','It is the date the food was delivered','It can be ignored if the food smells fine'], why:'Use by is a safety date. Best before is about quality.' },
+      { q:'A customer says they have a nut allergy and asks if a dish is safe. What should you do?', a:['Check the allergen information or ask the person in charge','Say it is probably fine','Tell them cooking will destroy the nuts','Pick out any nuts you can see'], why:'Never guess. Cooking does not remove allergens and traces can cause a reaction.' },
+      { q:'What is the correct order for a two-stage clean of a food-contact surface?', a:['Clean with detergent first, then sanitise and allow the contact time','Sanitise first, then wipe with a dry cloth','Spray sanitiser and wipe it off immediately','Rinse with cold water only'], why:'Sanitiser cannot work through grease and dirt, and needs its full contact time.' },
+      { q:'A fridge reads 11°C at your morning check. What should you do?', a:['Act on it, tell the person in charge and record what was done','Write down 5°C so the record looks right','Ignore it until the next check','Open the door to let it settle'], why:'Records must be honest. Take action, report it and note what you did.' }
+    ]
+  },
   coshh: {
     title: 'COSHH & Chemical Safety',
     blurb: 'How to read a label, use cleaning chemicals safely and what to do if something goes wrong.',
@@ -392,10 +586,10 @@ function vHome(){
 
   app.innerHTML = `
   <div class="hero"><div class="wrap">
-    <div class="eyebrow">Free for Gellings customers</div>
+    <div class="eyebrow">Free for Gellings customers · Food Hygiene Scheme ratings from January 2027</div>
     <h1>Train your team in the time it takes to have a <em>brew</em>.</h1>
     <p>Short, plain-English courses for the people who use our products every day. Work through the lessons on any phone, pass the quiz and print your certificate.</p>
-    <div class="cta"><button class="btn brass" data-start="coshh">Start COSHH training</button><a class="btn light" href="#courses">See all courses</a></div>
+    <div class="cta"><button class="btn brass" data-start="food">Start Food Hygiene: Aim for 5</button><a class="btn light" href="#courses">See all courses</a></div>
   </div></div>
 
   <section class="steps"><div class="wrap">
