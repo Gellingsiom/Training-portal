@@ -44,7 +44,7 @@ header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
 .hero p{max-width:52ch;color:#d5dbea;font-size:1.08rem}
 .eyebrow{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;position:relative;z-index:1}
-section{padding:52px 0}
+section{padding:52px 0;scroll-margin-top:64px}
 .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
 .steps .card b.n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--brass);font:700 1.1rem Fraunces;margin-bottom:12px}
@@ -174,12 +174,7 @@ const CONFIG = {
 };
 
 /* ============ COURSE CATALOGUE ============ */
-const SOON = [
-  ['Colour Coding & Infection Control','Stop germs travelling between areas with a simple colour system.'],
-  ['Washroom Hygiene','Cleaning order, dwell times and the touch points people miss.'],
-  ['Floor Care','Mopping systems, machines, pads and slip prevention.'],
-  ['Manual Handling','Lifting, carrying and moving stock without injury.']
-];
+const SOON = [];
 
 const COURSES = {
   food: {
@@ -522,6 +517,446 @@ const COURSES = {
       { q:'Someone has swallowed a cleaning chemical. What should you NOT do?', a:['Make them sick','Rinse their mouth','Get medical help straight away','Take the label or SDS to the medical team'], why:'Vomiting brings the chemical back up and can cause further burns.' },
       { q:'Which section of a safety data sheet covers first aid measures?', a:['Section 4','Section 1','Section 9','Section 16'], why:'Section 4 is first aid. Section 8 covers exposure controls and PPE.' },
       { q:'Which is a correct way to store cleaning chemicals?', a:['Locked away in original labelled containers, corrosives low down','On the top shelf above head height to keep them out of the way','Decanted into old drinks bottles to save space','On the cleaning trolley in the corridor overnight'], why:'Secure storage, original containers, and heavy or corrosive items stored low.' }
+    ]
+  },
+  ccic: {
+    title: 'Colour Coding & Infection Control',
+    blurb: 'How germs spread, how to stop them, and why the right colour cloth in the right area matters.',
+    mins: 20,
+    code: 'CCIC',
+    lessons: [
+      { t: 'How infection spreads', h: `
+        <p>Infection spreads when germs (bacteria, viruses and fungi) get from where they live to someone they can harm. This is often called the <b>chain of infection</b>. Break any link and the infection cannot spread.</p>
+        <table>
+          <tr><th>The germ</th><td>For example norovirus, E. coli, MRSA or flu</td></tr>
+          <tr><th>Where it lives</th><td>People, toilets, drains, raw food, dirty cloths and mops</td></tr>
+          <tr><th>The way out</th><td>Body fluids, coughs and sneezes, skin flakes, spills</td></tr>
+          <tr><th>How it travels</th><td>Hands, cloths, mops, equipment, surfaces, air and droplets</td></tr>
+          <tr><th>The way in</th><td>Mouth, nose, eyes, cuts and broken skin</td></tr>
+          <tr><th>The person at risk</th><td>Anyone, but especially older people, the very young and people who are already unwell</td></tr>
+        </table>
+        <h3>Where cleaners break the chain</h3>
+        <ul>
+          <li>Removing the places germs live, by cleaning thoroughly and to a schedule</li>
+          <li>Stopping germs travelling, with clean hands and colour-coded equipment</li>
+          <li>Paying extra attention to <b>touch points</b>: door handles, push plates, light switches, rails, taps, flush handles and lift buttons</li>
+        </ul>
+        <div class="key"><b>Key points</b>A dirty cloth or mop does not just fail to clean. It spreads germs from one surface to the next. Good cleaning breaks the chain; bad cleaning carries it round the building.</div>` },
+      { t: 'Hand hygiene and gloves', h: `
+        <p>Hands are the most common way germs travel. Gloves help, but they only protect you if they are used properly.</p>
+        <h3>Wash your hands</h3>
+        <ul>
+          <li>At the start and end of your shift, and before and after breaks</li>
+          <li>Before and after each cleaning task, especially between washrooms and other areas</li>
+          <li><b>Every time you take gloves off</b></li>
+          <li>After handling waste, laundry or anything soiled</li>
+        </ul>
+        <p>Use soap and warm running water for about 20 seconds, covering palms, backs, between fingers, thumbs, fingertips and wrists. Dry with a paper towel. Alcohol hand rub is useful between tasks when hands are visibly clean, but it is not enough after dealing with body fluids or diarrhoea and vomiting.</p>
+        <h3>Using gloves properly</h3>
+        <ul>
+          <li>Gloves are <b>single use, one task</b>. Change them between areas, for example from a toilet to a kitchen</li>
+          <li>Don't touch your face, phone, door handles or your trolley handle with dirty gloves</li>
+          <li>Take them off without touching the outside: peel the first off by the cuff, hold it in the gloved hand, then slide a clean finger inside the second cuff and peel it over the first</li>
+          <li>Bin them, then wash your hands</li>
+        </ul>
+        <h3>Look after your hands</h3>
+        <ul>
+          <li>Keep nails short and clean. False nails and nail varnish trap germs</li>
+          <li>Cover cuts with a waterproof dressing</li>
+          <li>Use the moisturiser provided. Cracked skin harbours germs and lets chemicals in</li>
+        </ul>
+        <div class="key"><b>Key points</b>Gloves off, hands washed. Every time.</div>` },
+      { t: 'The colour coding system', h: `
+        <p>Colour coding gives each area its own cloths, mops, buckets and brushes, so equipment from a toilet never ends up on a kitchen worktop. The most commonly used scheme in commercial settings is:</p>
+        <div class="sw"><i style="background:#d0221c"></i><span><b>Red</b> Toilets, urinals and washroom floors. The highest-risk areas</span></div>
+        <div class="sw"><i style="background:#f2c230"></i><span><b>Yellow</b> Washbasins, taps, mirrors and other washroom surfaces</span></div>
+        <div class="sw"><i style="background:#2e9b4f"></i><span><b>Green</b> Kitchens, food preparation, food service and bar areas</span></div>
+        <div class="sw"><i style="background:#1f6fd0"></i><span><b>Blue</b> Offices, reception, corridors and other general low-risk areas</span></div>
+        <h3 style="margin-top:1em">Care homes and healthcare</h3>
+        <p>Healthcare and many care settings follow the national NHS colour coding scheme, which is slightly different. In it, <b>red</b> covers all of the bathroom and washroom including basins, <b>blue</b> is general areas, <b>green</b> is catering, and <b>yellow</b> is kept for <b>isolation areas</b>, where someone has an infection.</p>
+        <div class="warn"><b>Your site's chart is the rule</b>Different sites use different schemes. Find the colour chart on display where you work and follow it exactly. If there isn't one, ask your supervisor.</div>
+        <h3>What gets colour coded</h3>
+        <p>Cloths, mop heads and handles, buckets, brushes, dustpans and sometimes gloves and aprons. Equipment that isn't coloured, such as a vacuum, should be kept to low-risk areas or cleaned properly between areas.</p>
+        <div class="key"><b>Key points</b>Never use a red or washroom colour in a food area. If you are not sure which colour an item is for, don't use it until you've checked.</div>` },
+      { t: 'Looking after cleaning equipment', h: `
+        <p>A mop left wet in a bucket overnight can grow more bacteria than it removed. Clean equipment is part of clean premises.</p>
+        <h3>After every job</h3>
+        <ul>
+          <li>Empty dirty water down the designated sluice or drain, never a food or hand-wash sink</li>
+          <li>Rinse and clean buckets, then turn them upside down to dry</li>
+          <li>Send reusable cloths and mop heads for laundering on a hot wash, following your site's rules and the care label</li>
+          <li>Throw away single-use cloths after one area</li>
+          <li>Wipe down handles, trolleys and machine parts</li>
+        </ul>
+        <h3>Storage</h3>
+        <ul>
+          <li>Store equipment <b>clean and dry</b>, with mops head-up or hanging</li>
+          <li>Keep each colour separate so they don't touch</li>
+          <li>Don't store cleaning equipment in food areas or washrooms where the public go</li>
+        </ul>
+        <h3>Replace it when</h3>
+        <ul>
+          <li>Cloths are thin, holed or permanently stained</li>
+          <li>Mop heads are matted, smelly or falling apart</li>
+          <li>Brushes are splayed or buckets are cracked</li>
+          <li>Colours have faded so much you can't tell them apart</li>
+        </ul>
+        <div class="key"><b>Key points</b>Clean, dry, separated by colour, and replaced when worn.</div>` },
+      { t: 'Body fluid spills, waste and sharps', h: `
+        <p>Blood, vomit, urine and faeces can carry serious infections. Deal with them promptly, safely and in the right order.</p>
+        <h3>Body fluid spills</h3>
+        <ol>
+          <li>Keep people away and put out a warning sign</li>
+          <li>Put on disposable gloves and an apron. Add eye protection if there is any risk of splashing</li>
+          <li>Use the <b>body fluid spill kit</b> and follow its instructions, which usually means covering and absorbing the spill first</li>
+          <li>Scoop the absorbed material into a waste bag, then clean the area with detergent</li>
+          <li>Disinfect with the product your site uses for body fluids, at the right strength and contact time</li>
+          <li>Dispose of everything as your site's waste rules say, remove PPE, and wash your hands</li>
+        </ol>
+        <p>For vomiting and diarrhoea outbreaks, such as norovirus, your site may have extra steps. Follow them closely, because these viruses spread very easily.</p>
+        <h3>Waste</h3>
+        <ul>
+          <li>Use the right bag for the right waste. Healthcare and care settings use specially coloured bags for different waste types</li>
+          <li>Don't overfill bags, and tie them securely</li>
+          <li>Hold bags by the neck, away from your body, and don't compress them with your hands or feet</li>
+        </ul>
+        <div class="warn"><b>Sharps: never pick them up with your hands</b>If you find a needle or other sharp, don't touch it. Keep people away and get someone trained to remove it with tongs or a litter picker into a sharps bin. If you are injured by a used needle: encourage it to bleed, wash it under running water with soap, don't scrub or suck it, cover it, report it straight away and get urgent medical advice.</div>
+        <div class="key"><b>Key points</b>Protect yourself first, contain, clean, then disinfect, and wash your hands at the end.</div>` }
+    ],
+    quiz: [
+      { q:'What is the main purpose of colour-coded cleaning equipment?', a:['To stop germs being carried from one area to another','To make the cleaning cupboard look tidy','So each cleaner has their own cloth','To show which products are most expensive'], why:'Colour coding keeps equipment for high-risk areas away from food and general areas.' },
+      { q:'In the common commercial scheme, which colour is used for toilets and urinals?', a:['Red','Green','Blue','Yellow'], why:'Red is for toilets, urinals and washroom floors, the highest-risk areas.' },
+      { q:'In the common commercial scheme, which colour is used in kitchens and food areas?', a:['Green','Red','Yellow','Any colour that is clean'], why:'Green is for food preparation, food service and bar areas.' },
+      { q:'In the NHS colour coding scheme used in many care settings, what is yellow for?', a:['Isolation areas','Kitchens','Offices','Toilets only'], why:'In the NHS scheme yellow is kept for isolation areas. Always follow your own site’s chart.' },
+      { q:'When must you wash your hands?', a:['Every time you take gloves off','Only at the end of your shift','Only if your hands look dirty','Only after cleaning toilets'], why:'Gloves can have tiny holes and hands get contaminated taking them off.' },
+      { q:'You finish mopping a washroom. What should you do with the mop?', a:['Rinse it and send it to be laundered or dried, stored head-up and separate from other colours','Leave it standing in the bucket of water ready for tomorrow','Use it to do the kitchen floor while it is still wet','Store it with the green kitchen mops'], why:'Wet mops left in buckets breed bacteria, and colours must be kept apart.' },
+      { q:'Which surfaces are touch points that need extra attention?', a:['Door handles, light switches, taps and flush handles','Ceilings','The underside of carpets','Windows on the third floor'], why:'Touch points are touched by many hands and spread germs quickly.' },
+      { q:'What is the correct order when dealing with a vomit spill?', a:['PPE on, contain and absorb, clean, then disinfect','Disinfect first, then put gloves on','Mop it straight up with the nearest mop','Cover it with paper and leave it for later'], why:'Protect yourself, contain the spill, clean off the soiling, then disinfect.' },
+      { q:'You find a used needle in a toilet cubicle. What should you do?', a:['Don’t touch it, keep people away and get it removed safely into a sharps bin','Pick it up carefully and put it in the general waste','Flush it down the toilet','Wrap it in tissue and put it in your pocket'], why:'Never handle sharps with your hands. Use the correct tools and a sharps bin.' },
+      { q:'Your site has a colour chart that differs from the one in this course. Which do you follow?', a:['Your site’s chart','This course','Whichever you remember','Neither, any colour will do'], why:'Schemes vary. Your site’s displayed chart is the rule where you work.' }
+    ]
+  },
+  wash: {
+    title: 'Washroom Hygiene',
+    blurb: 'A clean, stocked, fresh washroom every time: the right order, the right method and the touch points people miss.',
+    mins: 20,
+    code: 'WASH',
+    lessons: [
+      { t: 'Why washrooms matter', h: `
+        <p>The washroom is where customers, residents and staff judge how clean a whole building is. It is also where germs are most concentrated.</p>
+        <h3>What a good washroom looks like</h3>
+        <ul>
+          <li><b>Clean</b>: no marks, splashes, limescale or hair</li>
+          <li><b>Fresh</b>: no lingering smell, which usually means urine has been missed somewhere</li>
+          <li><b>Stocked</b>: soap, paper towels or a working dryer, toilet tissue and sanitary bins</li>
+          <li><b>Working</b>: taps, flushes, locks, dispensers and lights all OK</li>
+          <li><b>Safe</b>: dry floor, nothing broken, no sharps</li>
+        </ul>
+        <h3>Where the germs are</h3>
+        <p>Toilets and urinals are obvious, but the places people actually touch spread more: door handles, cubicle locks, flush handles, taps, soap and towel dispensers, hand dryer buttons, baby change units and light switches.</p>
+        <div class="key"><b>Key points</b>A washroom can look clean and still be dirty. Touch points and smells tell the real story.</div>` },
+      { t: 'Getting ready', h: `
+        <h3>Set up</h3>
+        <ul>
+          <li>Put out a <b>wet floor</b> or <b>cleaning in progress</b> sign, and close the washroom if your site allows</li>
+          <li>Open a window or check the extractor is running</li>
+          <li>Bring <b>red</b> equipment for toilets, urinals and floors and <b>yellow</b> for basins and surfaces, or follow your site's chart</li>
+          <li>Bring restock items so you don't have to leave half-way through</li>
+        </ul>
+        <h3>Protect yourself</h3>
+        <ul>
+          <li>Wear gloves, and an apron if your site requires one</li>
+          <li>Wear <b>eye protection</b> when using acid descalers or strong toilet cleaners, especially under rims and at head height</li>
+          <li>Check the label for dilution and contact time</li>
+        </ul>
+        <h3>Give the toilet cleaner a head start</h3>
+        <p>Flush each toilet and urinal, then apply toilet cleaner under the rims first. It works while you do everything else, which gives it its full <b>contact time</b>.</p>
+        <div class="warn"><b>Never mix toilet cleaners</b>Many toilet cleaners and descalers are acids. Mixed with bleach they give off toxic chlorine gas. Use one product, flush it away, then use the next.</div>` },
+      { t: 'The right order', h: `
+        <p>Work <b>top to bottom</b>, so dust and drips fall onto areas you haven't cleaned yet, and <b>cleanest to dirtiest</b>, so you don't carry germs from the toilet to the basin.</p>
+        <ol>
+          <li><b>High level:</b> vents, ledges, tops of cubicles and dispensers</li>
+          <li><b>Mirrors and glass</b></li>
+          <li><b>Dispensers and hand dryers</b>: outside and the parts hands touch</li>
+          <li><b>Basins, taps and splashbacks</b> with yellow equipment</li>
+          <li><b>Touch points</b>: door handles, push plates, locks, switches, baby change units</li>
+          <li><b>Cubicle walls and doors</b>, especially around handles and at hand height</li>
+          <li><b>Toilets and urinals</b> with red equipment</li>
+          <li><b>Bins</b>: empty, wipe and reline</li>
+          <li><b>Floor</b> last, working from the far corner towards the door</li>
+        </ol>
+        <h3>Basins and taps</h3>
+        <ul>
+          <li>Clean the whole basin including the overflow, plughole and underneath</li>
+          <li>Clean taps all the way round, including the base where limescale builds</li>
+          <li>Dry and buff chrome so it doesn't water-mark</li>
+        </ul>
+        <div class="key"><b>Key points</b>Top to bottom, clean to dirty, door last. A cloth that has touched a toilet never goes back to a basin.</div>` },
+      { t: 'Toilets and urinals', h: `
+        <h3>Toilets</h3>
+        <ol>
+          <li>The cleaner you applied earlier has been working. Brush under the rim, around the bowl and down into the U-bend</li>
+          <li>Flush, rinsing the brush in the flushing water</li>
+          <li>With a red cloth, clean the <b>outside</b> in this order: flush handle, cistern, seat lid both sides, seat both sides, hinges, outside of the pan, and the base and floor around it</li>
+          <li>Check behind the pan and pipes. Missed urine there is a common cause of smells</li>
+        </ol>
+        <h3>Urinals</h3>
+        <ul>
+          <li>With gloves on, remove any debris such as gum or cigarette ends into a bag</li>
+          <li>Apply cleaner, brush the bowl or trough including the outlet, then flush or rinse</li>
+          <li>Clean the wall and the floor directly in front, where splashes land</li>
+          <li>Replace <b>urinal screens</b> and mats when they are worn or have lost their fragrance</li>
+          <li>Descale regularly as your schedule says. Limescale and urine scale hold odours</li>
+        </ul>
+        <h3>Toilet brushes</h3>
+        <p>Rinse the brush in the flush, shake off and let it drip over the bowl before putting it back. Clean holders regularly and replace brushes when they are worn or stained.</p>
+        <div class="key"><b>Key points</b>Rim first, outside last, and always the floor and wall around the base. That's where smells come from.</div>` },
+      { t: 'Restocking, checks and problems', h: `
+        <h3>Restock</h3>
+        <ul>
+          <li>Fill soap and sanitiser so dispensers don't run out before the next check</li>
+          <li>Load towels and tissue the right way so they dispense one at a time</li>
+          <li>Check sanitary bins are emptied on schedule and not overflowing</li>
+          <li>Don't top up soap cartridges with different soap. Use sealed refills</li>
+        </ul>
+        <h3>Check and sign</h3>
+        <ul>
+          <li>Walk round once more: anything missed, anything wet, anything broken?</li>
+          <li>Remove signs when the floor is dry</li>
+          <li><b>Sign the washroom checklist</b> with the time. It shows customers and inspectors the room is looked after, and it's your evidence the work was done</li>
+          <li>Busy times need more frequent checks, not just one deep clean a day</li>
+        </ul>
+        <h3>Report</h3>
+        <ul>
+          <li>Leaks, blocked toilets, broken locks or dispensers, faulty lights or hand dryers</li>
+          <li>Graffiti, damage or signs of drug use</li>
+          <li>Any sharps. Don't touch them; keep people out and get them removed safely</li>
+        </ul>
+        <div class="key"><b>Key points</b>Stocked, checked, signed, and problems reported the same day.</div>` }
+    ],
+    quiz: [
+      { q:'What is the correct general order for cleaning a washroom?', a:['Top to bottom, cleanest to dirtiest, floor last','Toilets first, then basins with the same cloth','Floor first, then everything else','It doesn’t matter as long as it all gets done'], why:'This stops dirt falling onto clean areas and germs travelling from toilets to basins.' },
+      { q:'Why apply toilet cleaner under the rims at the start?', a:['So it has its full contact time while you clean everything else','So the toilet smells nice for the inspector','Because it needs to dry completely','To use up the bottle faster'], why:'Products need contact time to work. Applying first gives them that time.' },
+      { q:'Which colour is commonly used for washbasins and washroom surfaces?', a:['Yellow','Red','Green','Blue'], why:'In the common scheme yellow is for basins and surfaces, red for toilets and urinals.' },
+      { q:'Which of these is a touch point?', a:['Cubicle door lock','The ceiling','Skirting board behind a radiator','The top of a mirror'], why:'Touch points are things hands touch often: locks, handles, taps, flushes and buttons.' },
+      { q:'Why must you never mix bleach with an acid toilet cleaner?', a:['It gives off toxic chlorine gas','It makes the bleach stronger','It turns the water blue','It cancels both products out harmlessly'], why:'Bleach and acids react to release chlorine gas. Use one product at a time.' },
+      { q:'A washroom smells of urine even after cleaning. Where is the most likely cause?', a:['The floor, wall and pipes around the base of toilets and urinals','The mirror','The soap dispenser','The light switch'], why:'Splashes and scale around bases and behind pans are the usual source of smells.' },
+      { q:'When should eye protection be worn in a washroom?', a:['When using acid descalers or strong toilet cleaners','Never','Only when cleaning mirrors','Only when the lights are off'], why:'Splashes from strong cleaners can cause serious eye injury, especially under rims.' },
+      { q:'Where should you finish when cleaning the washroom floor?', a:['At the door, working from the far corner','In the middle of the room','At the far corner, walking back over the wet floor','Under the basins'], why:'Working towards the exit means you don’t walk over the wet, clean floor.' },
+      { q:'You find a broken lock on a cubicle door. What should you do?', a:['Report it the same day','Ignore it, it’s not cleaning','Tape the door shut and say nothing','Remove the door'], why:'Faults and damage should be reported promptly so they can be fixed.' },
+      { q:'Why sign the washroom checklist?', a:['It is evidence the washroom was checked and when','It is optional decoration','So customers know your name','It replaces the need to clean'], why:'Signed checklists show customers and inspectors the room is looked after.' }
+    ]
+  },
+  floor: {
+    title: 'Floor Care',
+    blurb: 'Sweeping, mopping, machines and the right products for each floor, without anyone slipping.',
+    mins: 25,
+    code: 'FLOOR',
+    lessons: [
+      { t: 'Slips, trips and safe working', h: `
+        <p>Slips and trips are one of the most common causes of injury at work, and most slips happen on floors that are wet or contaminated. Cleaners make floors wet as part of the job, so they have a big part to play in keeping people safe.</p>
+        <h3>A slip usually needs three things</h3>
+        <ul>
+          <li><b>Contamination</b>: water, grease, food, drinks, polish residue or dust</li>
+          <li><b>The floor surface</b>: smooth floors are worse when wet</li>
+          <li><b>Footwear</b>: smooth soles have little grip</li>
+        </ul>
+        <h3>Stay safe while you clean</h3>
+        <ul>
+          <li>Put out <b>wet floor signs</b> before you start, and take them away once the floor is dry. Signs left out all day get ignored</li>
+          <li>Clean at quieter times where possible, and do one half of a corridor at a time so people have a dry route</li>
+          <li>Wear slip-resistant footwear</li>
+          <li>Clean up spills straight away. Don't just put a sign over them</li>
+          <li>Keep cables, buckets and equipment out of walkways, and don't trail cables across doorways</li>
+        </ul>
+        <div class="key"><b>Key points</b>A sign is a warning, not a fix. The goal is a dry floor as quickly as possible.</div>` },
+      { t: 'Dry before wet', h: `
+        <p>Always remove loose dirt <b>before</b> you mop. Mopping over grit turns it into mud, spreads it around and, on polished or vinyl floors, scratches the surface every time someone walks on it.</p>
+        <h3>Ways to remove dry soil</h3>
+        <ul>
+          <li><b>Sweeping</b> with a soft broom indoors and a stiff broom outside or on rough floors. Use short strokes and keep the brush on the floor to avoid raising dust</li>
+          <li><b>Dust control mops</b> for large smooth floors, pushed in one direction without lifting</li>
+          <li><b>Vacuuming</b> for carpets, entrance mats and hard floors with a hard-floor setting</li>
+        </ul>
+        <h3>Stop dirt coming in</h3>
+        <p>Most dirt walks in on shoes. Good entrance matting, kept clean and vacuumed, catches a large share of it before it reaches your floors.</p>
+        <div class="key"><b>Key points</b>Sweep or vacuum first, every time. It makes mopping faster and protects the floor.</div>` },
+      { t: 'Mopping the right way', h: `
+        <h3>Before you start</h3>
+        <ul>
+          <li>Use the right <b>colour</b> mop and bucket for the area</li>
+          <li>Dilute the floor cleaner <b>exactly</b> as the label says. Too much detergent leaves a sticky film that attracts dirt and can make the floor slippery</li>
+          <li>Use cool or warm water as the label directs</li>
+        </ul>
+        <h3>Technique</h3>
+        <ul>
+          <li>Wring the mop well. A damp mop cleans better and dries faster than a soaking wet one</li>
+          <li>Do the edges first, then fill in with a <b>figure-of-eight</b> movement, keeping the leading edge of the mop moving forward so dirt is collected, not pushed around</li>
+          <li>Work in small sections, starting at the far side and working <b>towards the exit</b></li>
+          <li>Turn and rinse the mop often</li>
+          <li><b>Change the water</b> as soon as it looks dirty. Dirty water just redistributes the dirt</li>
+        </ul>
+        <h3>Mopping systems</h3>
+        <ul>
+          <li><b>Two-bucket or divided bucket:</b> one side for clean solution, one for rinsing the dirty mop, so the clean water stays clean</li>
+          <li><b>Flat mop systems:</b> a fresh pre-soaked pad for each room or area, which cuts down cross-contamination and water use</li>
+        </ul>
+        <div class="key"><b>Key points</b>Right dilution, well-wrung mop, figure of eight, clean water, and finish at the door.</div>` },
+      { t: 'Floor machines', h: `
+        <p>Machines such as scrubber-dryers, rotary floor machines and wet vacuums clean large areas fast, but they can cause injury if used carelessly. Only use a machine you've been <b>trained</b> on.</p>
+        <h3>Check it before you use it</h3>
+        <ul>
+          <li>Cable and plug: no cuts, exposed wires, scorch marks or taped repairs</li>
+          <li>Guards, pads and brushes fitted properly</li>
+          <li>Tanks clean and filled with the right solution at the right dilution</li>
+          <li>Battery machines charged</li>
+          <li>If anything is wrong, <b>don't use it</b>. Label it and report it</li>
+        </ul>
+        <h3>While you use it</h3>
+        <ul>
+          <li>Plug in at the socket nearest your work and keep the cable behind you, over your shoulder where possible</li>
+          <li>Hold the handles with both hands and start it with the pad flat on the floor</li>
+          <li>Never leave a running machine unattended</li>
+          <li>Switch off and unplug before changing pads or brushes</li>
+        </ul>
+        <h3>Pads</h3>
+        <p>Pads are colour coded by how aggressive they are. A typical guide is <b>white</b> for polishing, <b>red or blue</b> for light cleaning, <b>green</b> for scrubbing and <b>black or brown</b> for stripping, but colours vary between makers, so check the chart for the pads you use. The wrong pad can strip or scratch a floor in seconds.</p>
+        <div class="key"><b>Key points</b>Trained, checked, cable behind you, and the right pad for the job.</div>` },
+      { t: 'Floor types and aftercare', h: `
+        <h3>Match the product to the floor</h3>
+        <table>
+          <tr><th>Vinyl and lino</th><td>Neutral floor cleaner for daily use. Some vinyl is polished; follow the maintenance plan</td></tr>
+          <tr><th>Safety flooring</th><td>The textured surface holds dirt. Follow the flooring maker's method, which often means scrubbing with a brush or machine, not just a mop</td></tr>
+          <tr><th>Ceramic and quarry tiles</th><td>Degreaser in kitchens. Watch the grout lines, which hold dirt</td></tr>
+          <tr><th>Natural stone, marble and terrazzo</th><td>Avoid acidic cleaners and descalers, which can etch and dull the surface</td></tr>
+          <tr><th>Wood and laminate</th><td>Minimal water. Use a well-wrung mop or spray mop and a product made for wood</td></tr>
+        </table>
+        <p>If you're not sure, check the product label for which surfaces it is suitable for, test a small hidden area, or ask.</p>
+        <h3>Look after your equipment</h3>
+        <ul>
+          <li>Empty, rinse and dry buckets and machine tanks after every use</li>
+          <li>Send mop heads and pads for washing, or replace them</li>
+          <li>Clean machine squeegees, brushes and filters, and put batteries on charge</li>
+          <li>Store mops head-up and dry, and keep colours separate</li>
+        </ul>
+        <div class="key"><b>Key points</b>The wrong product can damage a floor permanently. Check the label and the floor before you start.</div>` }
+    ],
+    quiz: [
+      { q:'What should you do before mopping a floor?', a:['Sweep, dust-mop or vacuum to remove loose dirt','Nothing, just start mopping','Pour neat cleaner on the floor','Turn the heating up'], why:'Mopping over grit spreads dirt and scratches the surface.' },
+      { q:'Why is using too much floor cleaner a problem?', a:['It leaves a sticky film that attracts dirt and can make floors slippery','It makes the floor too clean','It has no effect at all','It dries the floor faster'], why:'Over-dosing leaves residue. Always dilute as the label says.' },
+      { q:'What movement is recommended for wet mopping open areas?', a:['A figure-of-eight, keeping the leading edge moving forward','Small circles in one spot','Straight back and forth over the same line','Slapping the mop down hard'], why:'The figure-of-eight collects dirt instead of pushing it around.' },
+      { q:'Where should you finish mopping a room?', a:['At the exit, so you don’t walk on the wet floor','In the far corner','In the middle of the room','Wherever you run out of water'], why:'Working towards the exit keeps the clean floor untouched while it dries.' },
+      { q:'When should wet floor signs be removed?', a:['As soon as the floor is dry','At the end of the day','Never, leave them out permanently','Before you start mopping'], why:'Signs left out all day get ignored and lose their effect.' },
+      { q:'You notice the cable on a scrubber-dryer has a cut in it. What should you do?', a:['Don’t use it, label it and report it','Wrap tape round it and carry on','Use it carefully for this job only','Hide it so no one else uses it'], why:'Damaged electrical equipment must be taken out of use until it’s repaired.' },
+      { q:'Where should you keep the cable of a floor machine while working?', a:['Behind you, over your shoulder where possible','In front of the machine','Across the doorway','Wrapped round your wrist'], why:'This stops the machine running over the cable and keeps it out of people’s way.' },
+      { q:'What type of cleaner should be avoided on marble and natural stone?', a:['Acidic cleaners and descalers','Neutral floor cleaner','Clean water','A dust control mop'], why:'Acids can etch and dull calcium-based stone like marble.' },
+      { q:'What is the advantage of a two-bucket or divided bucket system?', a:['The clean solution stays clean because the dirty mop is rinsed separately','It holds twice as much cleaner','It means you never need to change the water','It lets you mop two rooms at once'], why:'Separating rinse water from clean solution means less dirt goes back on the floor.' },
+      { q:'Floor pad colours are the same for every manufacturer. True or false?', a:['False: check the chart for the pads you use','True: white is always for stripping','True: all pads do the same job','False: pad colour is just for decoration'], why:'There’s a typical guide, but colours vary, and the wrong pad can damage a floor.' }
+    ]
+  },
+  mh: {
+    title: 'Manual Handling',
+    blurb: 'Lifting, carrying, pushing and stacking deliveries without hurting your back.',
+    mins: 20,
+    code: 'MH',
+    lessons: [
+      { t: 'What manual handling is', h: `
+        <p><b>Manual handling</b> means moving a load by hand or with bodily force: lifting, lowering, carrying, pushing and pulling. In cleaning, catering and hospitality that includes deliveries, cases of chemicals, boxes of paper, full bin bags, buckets of water, kegs, linen and furniture.</p>
+        <p>Poor handling is one of the most common causes of injury at work. Back, neck, shoulder and knee injuries can build up slowly over years as well as happen in one lift, and they can affect you for life.</p>
+        <h3>Who does what</h3>
+        <ul>
+          <li><b>Your employer</b> should avoid risky handling where they reasonably can, assess the handling that can't be avoided, reduce the risk, and give you training and equipment</li>
+          <li><b>You</b> should follow safe systems of work, use the equipment provided, and report anything that is too heavy, awkward or causing you pain</li>
+        </ul>
+        <div class="key"><b>Key points</b>The safest lift is the one you don't have to do. Always ask first: can I avoid this, or use a trolley?</div>` },
+      { t: 'Think before you lift: TILE', h: `
+        <p>Before any lift, run through <b>TILE</b>. It takes a few seconds.</p>
+        <table>
+          <tr><th>Task</th><td>Do I need to lift it at all? How far, how high, how often? Will I need to twist, stoop or reach?</td></tr>
+          <tr><th>Individual</th><td>Am I able to do this today? Do I have an injury, am I pregnant, or am I tired? Do I need help?</td></tr>
+          <tr><th>Load</th><td>How heavy is it? Is it bulky, unstable, sharp, hot, or liquid that will slosh? Where is the heavy side?</td></tr>
+          <tr><th>Environment</th><td>Is the route clear and the floor dry? Are there steps, slopes, doors or tight spaces? Is the lighting good?</td></tr>
+        </table>
+        <h3>Know your loads</h3>
+        <ul>
+          <li>Water weighs about 1kg per litre, and most liquid cleaning products are similar or heavier</li>
+          <li>A single 5 litre container weighs over 5kg; a case of four is over 20kg</li>
+          <li>A 20 litre drum weighs over 20kg and is awkward to grip</li>
+          <li>Cases of paper towels and toilet rolls are light but bulky, and can block your view</li>
+        </ul>
+        <div class="key"><b>Key points</b>Test the weight by rocking or tilting the load before you commit. If in doubt, split it, use a trolley or get help.</div>` },
+      { t: 'Safe lifting technique', h: `
+        <ol>
+          <li><b>Plan:</b> where is it going? Clear the route and prop doors open first</li>
+          <li><b>Position your feet:</b> apart, one slightly forward, close to the load</li>
+          <li><b>Bend your knees,</b> keeping your back in its natural curve. Don't stoop over the load</li>
+          <li><b>Get a firm grip</b> with your whole hand, not just your fingertips</li>
+          <li><b>Keep it close</b> to your waist, with the heaviest side next to your body</li>
+          <li><b>Lift smoothly,</b> using your legs, with your head up and looking ahead</li>
+          <li><b>Don't twist:</b> turn by moving your feet</li>
+          <li><b>Put it down,</b> then adjust. Lower by bending your knees in the same way</li>
+        </ol>
+        <h3>Guideline weights</h3>
+        <p>As a rough filter, HSE guidance uses about <b>25kg for men and 16kg for women</b> for an occasional lift held close to the body at waist height. These figures drop quickly when the load is held away from the body, lifted from the floor or above shoulder height, or lifted often. They are a point to stop and think, not a safe limit.</p>
+        <div class="warn"><b>Never lift</b>a load you can't see over, a load that is leaking or damaged, or anything that is too heavy for you. Stop and get help or equipment.</div>
+        <div class="key"><b>Key points</b>Feet apart, knees bent, load close, no twisting.</div>` },
+      { t: 'Trolleys, team lifts and pushing', h: `
+        <h3>Use the equipment</h3>
+        <ul>
+          <li>Sack trucks, flatbed trolleys, cage trolleys and cleaning trolleys exist so you don't have to carry</li>
+          <li>Check the wheels and brakes before you load it</li>
+          <li>Load heavy items at the bottom, and don't stack higher than you can see over</li>
+          <li>Don't overload it beyond its rated limit</li>
+        </ul>
+        <h3>Pushing and pulling</h3>
+        <ul>
+          <li><b>Push rather than pull</b> where you can. It's easier on your back and you can see where you're going</li>
+          <li>Keep your back straight and use your body weight, leaning in slightly</li>
+          <li>Take extra care on slopes, ramps, thresholds and kerbs, and get help with heavy loads on slopes</li>
+        </ul>
+        <h3>Team lifts</h3>
+        <ul>
+          <li>Agree who leads and give clear commands, for example "lift on three"</li>
+          <li>Plan the route and the put-down point first</li>
+          <li>Try to pair people of similar height and strength</li>
+        </ul>
+        <h3>Split the load</h3>
+        <p>Open a case and carry the bottles separately, or make two trips. Never decant chemicals into unlabelled containers to make them lighter. That swaps one hazard for another.</p>
+        <div class="key"><b>Key points</b>Wheels before backs. Push, don't pull. Two trips beat one injury.</div>` },
+      { t: 'Storage and looking after yourself', h: `
+        <h3>Store it sensibly</h3>
+        <ul>
+          <li>Keep <b>heavy and frequently used</b> items between knee and shoulder height, ideally at waist height</li>
+          <li>Put <b>light</b> items on the top shelves and the floor</li>
+          <li>Store chemicals low, never above eye level</li>
+          <li>Use steps to reach high shelves. Never climb on shelving, boxes or chairs</li>
+          <li>Keep store rooms tidy so you're not reaching over or around things</li>
+        </ul>
+        <h3>Deliveries</h3>
+        <ul>
+          <li>Have the delivery dropped as close as possible to where it will be stored</li>
+          <li>Break down pallets and cases where they are, onto a trolley</li>
+          <li>Put stock away straight away rather than leaving it in walkways</li>
+        </ul>
+        <h3>Look after your body</h3>
+        <ul>
+          <li>Take short breaks and vary your tasks if you are doing a lot of repetitive handling</li>
+          <li>Report aches and pains <b>early</b>, before they become an injury</li>
+          <li>Tell your manager about anything that affects what you can safely lift, such as an injury or pregnancy</li>
+        </ul>
+        <div class="key"><b>Key points</b>Heavy at waist height, light up high, and speak up early about pain.</div>` }
+    ],
+    quiz: [
+      { q:'What does TILE stand for?', a:['Task, Individual, Load, Environment','Time, Injury, Lift, Effort','Team, Instructions, Lifting, Equipment','Train, Inspect, Lift, Exit'], why:'TILE is a quick check of the task, the person, the load and the environment.' },
+      { q:'What is the first question to ask before a lift?', a:['Can I avoid lifting this, or use equipment?','How fast can I do it?','Who is watching?','Is it nearly break time?'], why:'The safest lift is one you don’t have to make.' },
+      { q:'Roughly how much does a case of four 5 litre containers weigh?', a:['Over 20kg','About 5kg','About 2kg','Under 1kg'], why:'Liquids weigh roughly 1kg per litre or more, so 20 litres is over 20kg plus packaging.' },
+      { q:'Where should you hold a load when carrying it?', a:['Close to your waist, heaviest side towards you','At arm’s length','Above your head','On one shoulder while twisting'], why:'Holding the load close greatly reduces the strain on your back.' },
+      { q:'You need to turn while carrying a box. What should you do?', a:['Move your feet to turn, don’t twist','Twist at the waist quickly','Drop the box and pick it up again','Turn your head only'], why:'Twisting with a load is a common cause of back injury.' },
+      { q:'Is it better to push or pull a loaded trolley?', a:['Push','Pull','It makes no difference','Neither, always carry'], why:'Pushing is easier on your back and you can see where you’re going.' },
+      { q:'What are the HSE guideline weights described in this course?', a:['About 25kg for men and 16kg for women, close to the body at waist height','50kg for everyone','5kg for everyone','There are no guidelines'], why:'They are a filter for an occasional, ideal lift and fall quickly in worse positions.' },
+      { q:'Where should heavy items be stored?', a:['Between knee and shoulder height, ideally waist height','On the top shelf','On the floor at the back','Wherever there is space'], why:'Waist height avoids stooping and reaching with heavy loads.' },
+      { q:'A case of chemicals is too heavy to carry comfortably. Which is a safe option?', a:['Open the case and carry the bottles separately, or use a trolley','Decant the chemicals into unlabelled bottles','Drag it across the floor by the strap','Carry it anyway and rest halfway'], why:'Split the load or use equipment. Never decant into unlabelled containers.' },
+      { q:'When should you report back or shoulder pain from work?', a:['Early, before it becomes an injury','Only if you need time off','Never, it’s part of the job','Only at your annual review'], why:'Early reporting means the task can be changed before real damage is done.' }
     ]
   }
 };
