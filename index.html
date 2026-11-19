@@ -130,6 +130,14 @@ td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-ali
 .cert dl{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin:26px 0 0}
 .cert dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.cert dd{margin:0;font-weight:600}
 .center{text-align:center}
+.dl{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;font-weight:600;color:var(--navy);text-decoration:none}
+.dl:before{content:"";flex:0 0 22px;height:22px;background:var(--teal);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v12m0 0l-5-5m5 5l5-5M4 19h16' stroke='black' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v12m0 0l-5-5m5 5l5-5M4 19h16' stroke='black' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.dl{justify-content:flex-start}.dl span{margin-left:auto;font-size:.78rem;font-weight:600;color:var(--mute);white-space:nowrap}
+.dl:hover{border-color:var(--teal)}
+.dlcard{display:flex;flex-direction:column;gap:6px}
+.dlcard .meta{font-size:.8rem;color:var(--mute);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.dlcard p{margin:0;color:#444b5c;font-size:.95rem}
+.dlcard .btn{margin-top:auto;align-self:flex-start;padding:10px 18px;font-size:.92rem}
 [hidden]{display:none!important}
 @media print{
   body{background:#fff}
@@ -286,6 +294,7 @@ const COURSES = {
           <li>Don't overload fridges or leave doors open</li>
           <li>Defrost in the fridge, never on the worktop overnight</li>
         </ul>
+        <a class="dl" href="checklists/fridge-freezer-temperature-log.pdf" download>Download the fridge &amp; freezer temperature log <span>PDF · A4</span></a><a class="dl" href="checklists/cooking-hot-holding-record.pdf" download>Download the cooking &amp; hot holding record <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>A temperature you did not write down is a temperature you cannot prove. Records are what turn good practice into evidence.</div>` },
       { t: 'Labels, dates and allergens', h: `
         <h3>Date labels</h3>
@@ -365,6 +374,7 @@ const COURSES = {
           <li>Answer questions honestly. If you don't know, say so and say who would know</li>
           <li>Be ready to explain what <b>you</b> do: when you wash your hands, how you check a temperature, what you do with an allergy order</li>
         </ul>
+        <a class="dl" href="checklists/daily-food-safety-checklist.pdf" download>Download the daily food safety checklist <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>If it is done every day and written down, inspection day is just another day.</div>` }
     ],
     quiz: [
@@ -415,6 +425,7 @@ const COURSES = {
         </table>
         <h3>Hidden allergens</h3>
         <p>Allergens often hide in sauces, stocks, dressings, marinades, garnishes, bought-in products and cooking oil. That's why you check the <b>ingredients label of every component</b>, not just the main ingredients.</p>
+        <a class="dl" href="checklists/allergen-matrix.pdf" download>Download the allergen matrix <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>Keep an up-to-date allergen record or matrix for every dish, and update it whenever a recipe, product or supplier changes.</div>` },
       { t: 'Cross-contact in the kitchen', h: `
         <p><b>Cross-contact</b> is when an allergen gets into a food that shouldn't contain it. Cooking does <b>not</b> destroy allergens, so prevention is the only control.</p>
@@ -852,6 +863,7 @@ const COURSES = {
           <li>Graffiti, damage or signs of drug use</li>
           <li>Any sharps. Don't touch them; keep people out and get them removed safely</li>
         </ul>
+        <a class="dl" href="checklists/washroom-check-sheet.pdf" download>Download the washroom check sheet <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>Stocked, checked, signed, and problems reported the same day.</div>` }
     ],
     quiz: [
@@ -1225,6 +1237,7 @@ const COURSES = {
           <li>Review it when something changes: new equipment, new products, a complaint, or an inspection finding</li>
           <li>Keep completed sheets for as long as your organisation requires</li>
         </ul>
+        <a class="dl" href="checklists/cleaning-schedule.pdf" download>Download the cleaning schedule <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>What, how, how often, who, and signed off. Review it whenever things change.</div>` },
       { t: 'Checking standards', h: `
         <p>Regular checks catch problems before customers or inspectors do, and show the team that standards matter.</p>
@@ -1261,6 +1274,7 @@ const COURSES = {
           <li>Electrical equipment checks for floor machines and vacuums</li>
           <li>Manual handling and lone working assessments where relevant</li>
         </ul>
+        <a class="dl" href="checklists/coshh-product-register.pdf" download>Download the COSHH product register <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>Every product listed, its data sheet on file, assessed, and the team told. Review it when anything changes.</div>` },
       { t: 'Training and new starters', h: `
         <h3>Induction</h3>
@@ -1282,6 +1296,7 @@ const COURSES = {
         </ul>
         <h3>Training records</h3>
         <p>For each person, keep what training they've had, when, and the evidence, such as a certificate or signed sheet. Inspectors, insurers and clients may all ask to see it.</p>
+        <a class="dl" href="checklists/staff-training-record.pdf" download>Download the staff training record <span>PDF · A4</span></a>
         <div class="key"><b>Key points</b>Train before they work alone, refresh yearly, and keep the evidence.</div>` }
     ],
     quiz: [
@@ -1298,6 +1313,18 @@ const COURSES = {
     ]
   }
 };
+
+/* ============ DOWNLOADS ============ */
+const DOWNLOADS = [
+  ['daily-food-safety-checklist','Daily Food Safety Checklist','Opening, service and closing checks for a whole week, with a box for problems and action taken.','Portrait'],
+  ['fridge-freezer-temperature-log','Fridge & Freezer Temperature Log','Morning and afternoon readings for up to three fridges and two freezers.','Landscape'],
+  ['cooking-hot-holding-record','Cooking & Hot Holding Record','Core temperatures for cooking, reheating, hot holding and cooling.','Portrait'],
+  ['allergen-matrix','Allergen Matrix','All 14 allergens against every dish on your menu.','Landscape'],
+  ['washroom-check-sheet','Washroom Check Sheet','Hourly checks to display on the washroom door.','Portrait'],
+  ['cleaning-schedule','Cleaning Schedule','What gets cleaned, how, how often and by whom, signed off daily.','Landscape'],
+  ['coshh-product-register','COSHH Product Register','Every chemical on site, with its data sheet and assessment.','Landscape'],
+  ['staff-training-record','Staff Training Record','Who has done which course, when, and when the refresher is due.','Landscape']
+];
 
 /* ============ STATE ============ */
 let S = { user:null, courses:{} };
@@ -1362,7 +1389,7 @@ function vHome(){
     <div class="eyebrow">Free for Gellings customers · Food Hygiene Scheme ratings from January 2027</div>
     <h1>Train your team in the time it takes to have a <em>brew</em>.</h1>
     <p>Short, plain-English courses for the people who use our products every day. Work through the lessons on any phone, pass the quiz and print your certificate.</p>
-    <div class="cta"><button class="btn brass" data-start="food">Start Food Hygiene: Aim for 5</button><a class="btn light" href="#courses">See all courses</a></div>
+    <div class="cta"><button class="btn brass" data-start="food">Start Food Hygiene: Aim for 5</button><a class="btn light" href="#courses">See all courses</a><a class="btn light" href="#downloads">Free checklists</a></div>
   </div></div>
 
   <section class="steps"><div class="wrap">
@@ -1380,6 +1407,12 @@ function vHome(){
     <div class="grid">${cards}</div>
   </div></section>
 
+  <section id="downloads" style="padding-top:0"><div class="wrap">
+    <h2>Free printable checklists</h2>
+    <p style="max-width:62ch">The records inspectors and clients ask to see, ready to print and fill in. Free for Gellings customers.</p>
+    <div class="grid">${DOWNLOADS.map(([f,t,d,o]) => `<div class="card dlcard"><div class="meta">PDF · A4 ${o}</div><h3>${t}</h3><p>${d}</p><a class="btn ghost" href="checklists/${f}.pdf" download>Download</a></div>`).join('')}</div>
+  </div></section>
+
   <section class="band"><div class="wrap">
     <h2>For managers</h2>
     <p style="max-width:62ch">Share this page with your team and ask them to enter your email when they sign in. When they pass, one tap sends you their name, score, date and certificate number for your training records.</p>
@@ -1392,6 +1425,7 @@ function vHome(){
     <details><summary>Does it cost anything?</summary><p>No. The training is free for Gellings customers and their staff.</p></details>
     <details><summary>Do I need an account?</summary><p>No. Your progress is stored on the device you use, so finish a course on the same phone, tablet or computer you started on.</p></details>
     <details><summary>Is the certificate an accredited qualification?</summary><p>No. It is a certificate of completion showing you have taken awareness training and passed the quiz. It sits alongside your employer's own induction and COSHH assessments.</p></details>
+    <details><summary>Can I edit the checklists?</summary><p>They're designed to print and fill in by hand. If you'd like a version you can type into, ask us on 01624 671200 or info@gellings.im.</p></details>
     <details><summary>What if I fail the quiz?</summary><p>You'll see which answers to look at again, and you can retake it straight away.</p></details>
   </div></section>`;
 
