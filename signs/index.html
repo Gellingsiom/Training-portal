@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Safety & Hygiene Sign Library | Gellings</title>
+<meta name="description" content="Gellings safety and hygiene sign library: practical workplace reminders and safety sign templates.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2340;--navy2:#263156;--teal:#54b2ac;--brass:#c9a35c;--bg:#f6f4ef;--ink:#1f2433;--mute:#667085;--line:#e4e0d6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px Inter,Arial,sans-serif}
+header{background:var(--navy);color:white;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:4}
+.brand{color:white;text-decoration:none;font:700 1.25rem Fraunces,serif}.brand span{display:block;color:var(--brass);font:600 .68rem Inter;letter-spacing:.15em;text-transform:uppercase;margin-top:3px}
+header a.back{color:#fff;text-decoration:none;border:1px solid #ffffff55;padding:9px 13px;border-radius:8px;font-size:.85rem}
+main{max-width:1120px;margin:auto;padding:34px 20px 70px}.eyebrow{color:#3a8f89;font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+h1,h2{font-family:Fraunces,Georgia,serif;color:var(--navy)}h1{font-size:clamp(2rem,5vw,3.5rem);margin:8px 0} .intro{max-width:760px;line-height:1.65;color:#4c5363}
+.notice{background:#fff;border-left:4px solid var(--brass);padding:14px 17px;border-radius:8px;line-height:1.55;font-size:.9rem;margin:22px 0}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.tools input,.tools select{border:1px solid #d6d2c9;border-radius:9px;padding:12px 14px;background:white;font:inherit;min-height:44px}.tools input{flex:1;min-width:220px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}.tab{border:1px solid var(--line);background:white;color:var(--navy);border-radius:99px;padding:9px 14px;font-weight:700;cursor:pointer}.tab.active{background:var(--navy);color:white;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 3px 12px #1a23400a}
+.preview{height:142px;border-radius:9px;display:grid;place-items:center;padding:16px;text-align:center;position:relative;overflow:hidden}
+.preview .symbol{font-size:3rem;line-height:1}.preview strong{display:block;font-size:.95rem;max-width:22ch;margin-top:8px}
+.preview.branding{background:var(--navy);color:white;border-bottom:6px solid var(--teal)}.preview.branding .symbol{color:var(--brass)}
+.preview.mandatory{background:#1769aa;color:white}.preview.warning{background:#ffdf00;color:#111}.preview.prohibition{background:#fff;color:#c62828;border:9px solid #c62828}.preview.safe{background:#16834a;color:white}
+.meta{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}.card h3{font:700 1.1rem Fraunces,Georgia,serif;color:var(--navy);margin:0}.card p{font-size:.87rem;line-height:1.5;color:#596071;margin:0;flex:1}
+.card button{border:0;background:var(--navy);color:white;border-radius:8px;padding:11px 14px;font:700 .88rem Inter;cursor:pointer}.card button:hover{background:#303d68}
+footer{background:var(--navy);color:#d5dbea;padding:22px;text-align:center;font-size:.8rem}
+.empty{padding:30px;text-align:center;color:var(--mute);grid-column:1/-1}
+@media print{header,main,.notice,footer{display:none!important}}
+</style></head>
+<body>
+<header><a class="brand" href="../">Gellings<span>Training & Compliance Hub</span></a><a class="back" href="../">← Back to Training Academy</a></header>
+<main>
+<div class="eyebrow">Gellings · Workplace resources</div>
+<h1>Safety & Hygiene Sign Library</h1>
+<p class="intro">A growing collection of practical signs and reminders for kitchens, washrooms, cleaning stores and hospitality workplaces. Search the library, choose a paper size and print the sign you need.</p>
+<div class="notice"><b>Important:</b> This first library contains workplace reminder posters and sign templates. It is not a legal compliance certificate. Where a sign is required by law or a recognised standard, use the correct approved pictogram, format and placement for your premises. Always follow your site risk assessment, fire plan, product label and safety data sheet.</div>
+<div class="tools"><input id="search" type="search" placeholder="Search signs, e.g. handwashing, allergens, PPE…" aria-label="Search signs"><select id="size" aria-label="Print size"><option value="A4">Print size: A4</option><option value="A3">Print size: A3</option></select></div>
+<div class="tabs" id="tabs"></div><div class="grid" id="grid"></div>
+</main><footer>Gellings · The Happy Hygiene & Hospitality People · Isle of Man</footer>
+<script>
+const signs=[
+["Hand hygiene","Wash your hands","Wet hands. Soap. Scrub for 20 seconds. Rinse and dry thoroughly.","🧼","brand"],
+["Hand hygiene","When to wash your hands","Before food handling; after the toilet; after breaks; after raw food, waste, cleaning or touching your face.","🚰","brand"],
+["Hand hygiene","Use the hand wash basin","Use the designated hand wash basin. Keep it clear and stocked with soap and hygienic drying materials.","🚿","brand"],
+["Hand hygiene","Keep nails clean and short","Keep fingernails short and clean. Follow your workplace rules on nail polish and artificial nails.","✋","brand"],
+["Food safety","Separate raw and ready-to-eat food","Keep raw foods separate. Use dedicated equipment and clean and disinfect between tasks.","🥩","brand"],
+["Food safety","Prevent cross-contamination","Clean as you go. Change gloves or wash hands when changing tasks. Never let raw food contact ready-to-eat food.","↔️","brand"],
+["Food safety","Allergen awareness","Always check the current allergen information. Never guess. Prevent cross-contact and tell the person in charge if unsure.","⚠️","brand"],
+["Food safety","Check food temperatures","Use a clean, suitable probe. Check the centre of food and record results in line with your food safety procedures.","🌡️","brand"],
+["Food safety","Keep chilled food chilled","Store chilled food at the temperature set by your food safety management system. Check and record fridge temperatures.","❄️","brand"],
+["Food safety","Date and label opened products","Label food with the product name, opening or preparation date and use-by information required by your procedure.","🏷️","brand"],
+["Food safety","Cover food in storage","Keep food covered, protected and stored in suitable food-grade containers. Store raw food below ready-to-eat food.","🥣","brand"],
+["Food safety","Report illness to your manager","Tell your manager about vomiting, diarrhoea or other symptoms that could affect food safety before starting work.","🩺","brand"],
+["Cleaning","Clean then disinfect","Remove dirt first with the correct cleaning method. Apply disinfectant at the correct dilution and contact time.","🧽","brand"],
+["Cleaning","Follow the cleaning schedule","Use the correct product and equipment. Complete the task and sign the cleaning record when finished.","📋","brand"],
+["Cleaning","Never mix chemicals","Never mix cleaning chemicals. Use products only as directed on the label and safety data sheet.","☣️","warning"],
+["Cleaning","Wear the required PPE","Wear the personal protective equipment stated on the product label, safety data sheet and workplace assessment.","🥽","mandatory"],
+["Cleaning","Store chemicals safely","Keep chemicals in labelled containers, closed and stored securely away from food and food-contact items.","🔒","brand"],
+["Cleaning","Use chemicals as directed","Follow dilution, application, contact time and rinsing instructions. Never decant into food or drink containers.","🧴","brand"],
+["Cleaning","Keep cleaning equipment separate","Use the correct colour-coded equipment for each area and task. Store it clean and allow it to dry.","🪣","brand"],
+["Cleaning","Report spills immediately","Keep people away from spills. Follow the site spill procedure and use the correct PPE and spill kit.","⚠️","warning"],
+["Workplace safety","Caution: wet floor","Take care. Floors may be slippery. Clean spills promptly and use a wet floor sign while the area is drying.","⚠️","warning"],
+["Workplace safety","Keep fire exits clear","Do not block fire exits, escape routes or fire-fighting equipment. Report obstructions immediately.","🚪","safe"],
+["Workplace safety","First aid point","Know where the first aid kit and appointed first aider are located. Report accidents and injuries promptly.","✚","safe"],
+["Workplace safety","No smoking","Smoking and vaping are not permitted in designated smoke-free areas.","🚭","prohibition"],
+["Workplace safety","Wear safety footwear","Wear suitable protective footwear where required by the workplace risk assessment.","🥾","mandatory"],
+["Workplace safety","Warning: hot surface","Caution: hot surfaces and equipment can cause burns. Use suitable protection and follow safe working procedures.","♨️","warning"],
+["Washrooms","Washroom check in progress","Please report any issues with cleanliness, supplies or equipment to the person in charge.","🧻","brand"],
+["Washrooms","Keep washrooms clean","Wash and disinfect touch points regularly. Replenish soap, hand-drying materials and toilet supplies.","✨","brand"],
+["Washrooms","Dispose of waste correctly","Use the bins provided. Do not flush wipes or other items unless the facility specifically permits it.","🗑️","brand"],
+["Hospitality","Staff only beyond this point","Authorised staff only. Visitors and contractors must follow site sign-in and hygiene procedures.","🔑","brand"]
+];
+const categories=["All signs",...new Set(signs.map(s=>s[0]))];let active="All signs";
+const tabs=document.getElementById("tabs"),grid=document.getElementById("grid"),search=document.getElementById("search");
+function draw(){tabs.innerHTML=categories.map(c=>'<button class="tab '+(c===active?'active':'')+'" data-cat="'+c+'">'+c+'</button>').join('');tabs.querySelectorAll("button").forEach(b=>b.onclick=()=>{active=b.dataset.cat;draw()});
+const q=search.value.toLowerCase();const list=signs.filter(s=>(active==="All signs"||s[0]===active)&&s.join(" ").toLowerCase().includes(q));
+grid.innerHTML=list.length?list.map((s)=>{const i=signs.indexOf(s);return '<article class="card"><div class="preview '+s[4]+'"><div><div class="symbol">'+s[3]+'</div><strong>'+s[1]+'</strong></div></div><div class="meta">'+s[0]+'</div><h3>'+s[1]+'</h3><p>'+s[2]+'</p><button data-print="'+i+'">Print this sign</button></article>'}).join(''):'<div class="empty">No signs match that search. Try another word.</div>';
+grid.querySelectorAll("[data-print]").forEach(b=>b.onclick=()=>printSign(signs[Number(b.dataset.print)]));}
+function printSign(s){const size=document.getElementById("size").value;const type=s[4];const colours={brand:{bg:"#1a2340",fg:"#fff",accent:"#54b2ac",symbol:"#c9a35c"},mandatory:{bg:"#1769aa",fg:"#fff",accent:"#fff",symbol:"#fff"},warning:{bg:"#ffdf00",fg:"#111",accent:"#111",symbol:"#111"},prohibition:{bg:"#fff",fg:"#b71c1c",accent:"#b71c1c",symbol:"#b71c1c"},safe:{bg:"#16834a",fg:"#fff",accent:"#fff",symbol:"#fff"}}[type];
+const w=size==="A3"?"297mm":"210mm",h=size==="A3"?"420mm":"297mm";
+const html='<!doctype html><html><head><meta charset="utf-8"><title>'+s[1]+' | Gellings</title><style>@page{size:'+size+' portrait;margin:0}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif}.sheet{width:'+w+';height:'+h+';padding:12mm;background:'+colours.bg+';color:'+colours.fg+';display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:7mm solid '+colours.accent+';-webkit-print-color-adjust:exact;print-color-adjust:exact}.mark{font-size:48pt;color:'+colours.symbol+';margin-bottom:18mm}.title{font-size:34pt;font-weight:800;line-height:1.12;max-width:90%;text-transform:uppercase}.message{font-size:20pt;line-height:1.45;max-width:84%;margin-top:15mm}.brand{margin-top:auto;padding-top:16mm;font-weight:800;letter-spacing:.12em;font-size:14pt;color:'+colours.accent+'}.sub{font-size:9pt;letter-spacing:.12em;margin-top:3mm}</style></head><body><div class="sheet"><div class="mark">'+s[3]+'</div><div class="title">'+s[1]+'</div><div class="message">'+s[2]+'</div><div class="brand">GELLINGS</div><div class="sub">THE HAPPY HYGIENE & HOSPITALITY PEOPLE</div></div><script>window.onload=()=>window.print()<\/script></body></html>';
+const win=window.open("","_blank");if(!win){alert("Please allow pop-ups to print this sign.");return}win.document.write(html);win.document.close();}
+search.addEventListener("input",draw);draw();
+</script></body></html>
