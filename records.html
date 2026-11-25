@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Training Records · Gellings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a2340'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='700' text-anchor='middle' fill='%23c9a35c'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+:root{--navy:#1a2340;--teal:#54b2ac;--teal-d:#3a8f89;--brass:#c9a35c;--bg:#f6f4ef;--ink:#1f2433;--mute:#667085;--line:#e4e0d6;--bad:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);margin:0 0 .4em}
+header.top{background:var(--navy);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.top .wrap{display:flex;align-items:center;gap:10px;min-height:64px}
+.top b{font:700 1.35rem Fraunces}.top span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border-left:1px solid rgba(255,255,255,.25);padding-left:10px}
+main{padding:28px 0 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+label{display:block;font-weight:600;font-size:.85rem;margin:0 0 4px}
+input,select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:1rem Inter;background:#fff}
+.row{display:grid;gap:12px;grid-template-columns:2fr 1fr auto;align-items:end}
+@media(max-width:760px){.row{grid-template-columns:1fr}}
+.btn{display:inline-block;border:0;border-radius:999px;padding:11px 20px;font:600 .95rem Inter;cursor:pointer;text-decoration:none;background:var(--teal);color:#fff;white-space:nowrap}
+.btn:hover{background:var(--teal-d)}.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}.btn.ghost:hover{border-color:var(--teal)}
+.btn.sm{padding:7px 14px;font-size:.85rem}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 12px}
+.bar .count{margin-right:auto;color:var(--mute);font-weight:600}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.92rem}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:.82rem;cursor:pointer;user-select:none;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem}
+.msg{padding:14px 16px;border-radius:10px;margin:14px 0;background:#e6f4f3}.msg.err{background:#fdf1ee;color:var(--bad)}
+.hint{font-size:.82rem;color:var(--mute)}
+details summary{cursor:pointer;font-weight:600;color:var(--navy)}
+.cert{background:#fff;border:10px solid var(--navy);outline:2px solid var(--brass);outline-offset:-18px;padding:54px 36px;text-align:center;max-width:820px;margin:28px auto}
+.cert .logo{font:700 2rem Fraunces;color:var(--navy)}
+.cert .sub{letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;color:var(--brass);font-weight:700}
+.cert h2{font-size:2.2rem;margin:26px 0 6px}
+.cert .name{font:600 2rem Fraunces;color:var(--teal-d);border-bottom:2px solid var(--brass);display:inline-block;padding:0 26px 6px;margin:12px 0}
+.cert .small{font-size:.8rem;color:var(--mute);margin-top:26px}
+.cert dl{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin:26px 0 0}
+.cert dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.cert dd{margin:0;font-weight:600}
+.printhead{display:none}
+[hidden]{display:none!important}
+@media print{
+  body{background:#fff}
+  header.top,.noprint{display:none!important}
+  main{padding:0}
+  .printhead{display:block;margin-bottom:12px}
+  table{font-size:10pt}
+  th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  th:last-child,td:last-child{display:none}
+  .cert{margin:0 auto;border-width:8px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><b>Gellings</b><span>Training Records</span></div></header>
+
+<main><div class="wrap" id="app"></div></main>
+
+<script>
+/* The web app URL from the Google Apps Script deployment (same as recordUrl in index.html). */
+const RECORDS_URL = '';
+const KEY_STORE = 'gellingsRecords.key';
+
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = iso => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' }); };
+const longDate = iso => new Date(iso).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+let records = [], sortKey = 'passed', sortDir = -1;
+
+function getKey(){ try { return localStorage.getItem(KEY_STORE) || ''; } catch(e){ return ''; } }
+function setKey(k){ try { k ? localStorage.setItem(KEY_STORE, k) : localStorage.removeItem(KEY_STORE); } catch(e){} }
+
+function vLogin(msg){
+  app.innerHTML = `<div class="card" style="max-width:520px;margin:30px auto">
+    <h2>Training records</h2>
+    <p>Everyone who has passed a course on the Gellings Training Academy. Enter the admin key from your Google Apps Script setup.</p>
+    ${!RECORDS_URL ? '<div class="msg err">Records aren’t switched on yet. Add the web app URL to RECORDS_URL in records.html.</div>' : ''}
+    ${msg ? `<div class="msg err">${esc(msg)}</div>` : ''}
+    <form id="f"><label for="k">Admin key</label><input id="k" type="password" autocomplete="current-password" required>
+    <p class="hint">Saved on this computer only, so you won't need it next time.</p>
+    <button class="btn">Open records</button></form></div>`;
+  document.getElementById('f').onsubmit = e => { e.preventDefault(); setKey(document.getElementById('k').value.trim()); load(); };
+}
+
+async function load(){
+  const key = getKey();
+  if (!RECORDS_URL || !key) return vLogin();
+  app.innerHTML = '<div class="msg">Loading records…</div>';
+  try {
+    const res = await fetch(`${RECORDS_URL}?key=${encodeURIComponent(key)}&t=${Date.now()}`);
+    const data = await res.json();
+    if (!data.ok) { setKey(''); return vLogin(data.error === 'wrong key' ? 'That key isn’t right. Check it and try again.' : data.error); }
+    records = data.records;
+    vList();
+  } catch(e) {
+    app.innerHTML = `<div class="msg err">Couldn't load the records. Check your internet connection and the web app URL, then try again.</div><button class="btn" onclick="load()">Try again</button>`;
+  }
+}
+
+function filtered(){
+  const q = (document.getElementById('q')?.value || '').trim().toLowerCase();
+  const course = document.getElementById('course')?.value || '';
+  return records
+    .filter(r => !course || r.course === course)
+    .filter(r => !q || [r.name, r.company, r.course, r.cert, r.manager].join(' ').toLowerCase().includes(q))
+    .sort((a,b) => {
+      const x = a[sortKey], y = b[sortKey];
+      return (typeof x === 'number' ? x - y : String(x).localeCompare(String(y))) * sortDir;
+    });
+}
+
+function vList(){
+  const courses = [...new Set(records.map(r => r.course))].sort();
+  app.innerHTML = `
+    <div class="card noprint">
+      <div class="row">
+        <div><label for="q">Search name, workplace or certificate no.</label><input id="q" type="search" placeholder="e.g. Hotel name or GEL-COSHH-…"></div>
+        <div><label for="course">Course</label><select id="course"><option value="">All courses</option>${courses.map(c => `<option>${esc(c)}</option>`).join('')}</select></div>
+        <button class="btn ghost" id="refresh">Refresh</button>
+      </div>
+    </div>
+    <div class="printhead"><h2>Gellings Training Academy: training records</h2><p class="hint" id="ph"></p></div>
+    <div class="bar noprint"><span class="count" id="count"></span>
+      <button class="btn ghost sm" id="csv">Download spreadsheet (CSV)</button>
+      <button class="btn sm" id="plist">Print this list</button>
+      <button class="btn ghost sm" id="logout">Sign out</button>
+    </div>
+    <table><thead><tr>
+      <th data-k="passed">Date passed</th><th data-k="name">Name</th><th data-k="company">Workplace</th><th data-k="course">Course</th><th data-k="score">Score</th><th data-k="cert">Certificate no.</th><th></th>
+    </tr></thead><tbody id="rows"></tbody></table>`;
+  const draw = () => {
+    const list = filtered();
+    document.getElementById('count').textContent = `${list.length} of ${records.length} record${records.length === 1 ? '' : 's'}`;
+    const q = document.getElementById('q').value.trim(), c = document.getElementById('course').value;
+    document.getElementById('ph').textContent = [q && `Search: "${q}"`, c && `Course: ${c}`, `Printed ${longDate(new Date().toISOString())}`, `${list.length} record${list.length === 1 ? '' : 's'}`].filter(Boolean).join(' · ');
+    document.getElementById('rows').innerHTML = list.length ? list.map(r => `<tr>
+      <td>${fmt(r.passed)}</td><td><b>${esc(r.name)}</b></td><td>${esc(r.company)}</td><td>${esc(r.course)}</td><td>${esc(r.score)}%</td>
+      <td class="mono">${esc(r.cert)}</td><td><button class="btn ghost sm" data-cert="${esc(r.cert)}">Certificate</button></td></tr>`).join('')
+      : `<tr><td colspan="7" class="hint">No records match.</td></tr>`;
+    document.querySelectorAll('[data-cert]').forEach(b => b.onclick = () => vCert(records.find(r => r.cert === b.dataset.cert)));
+  };
+  document.getElementById('q').oninput = draw;
+  document.getElementById('course').onchange = draw;
+  document.querySelectorAll('th[data-k]').forEach(th => th.onclick = () => { sortDir = sortKey === th.dataset.k ? -sortDir : 1; sortKey = th.dataset.k; draw(); });
+  document.getElementById('refresh').onclick = load;
+  document.getElementById('plist').onclick = () => window.print();
+  document.getElementById('logout').onclick = () => { setKey(''); records = []; vLogin(); };
+  document.getElementById('csv').onclick = () => {
+    const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const lines = [['Date passed','Name','Workplace','Manager email','Course','Score %','Certificate no.'].map(cell).join(',')]
+      .concat(filtered().map(r => [fmt(r.passed), r.name, r.company, r.manager, r.course, r.score, r.cert].map(cell).join(',')));
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type:'text/csv' }));
+    a.download = `training-records-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+  };
+  draw();
+}
+
+function vCert(r){
+  if (!r) return;
+  app.innerHTML = `
+    <div class="cert">
+      <div class="logo">Gellings</div><div class="sub">Training Academy</div>
+      <h2>Certificate of Completion</h2>
+      <p>This certifies that</p>
+      <div class="name">${esc(r.name)}</div>
+      <p>of <b>${esc(r.company)}</b><br>has completed the awareness course and passed the assessment for</p>
+      <h3 style="font-size:1.5rem">${esc(r.course)}</h3>
+      <dl><div><dt>Date</dt><dd>${longDate(r.passed)}</dd></div><div><dt>Score</dt><dd>${esc(r.score)}%</dd></div><div><dt>Certificate no.</dt><dd>${esc(r.cert)}</dd></div></dl>
+      <p class="small">Awareness training provided by Gellings, Braddan, Isle of Man. Not an accredited qualification. Refresher training is recommended every 12 months.</p>
+    </div>
+    <div class="bar noprint" style="justify-content:center">
+      <button class="btn" id="print">Print or save as PDF</button>
+      <button class="btn ghost" id="back">Back to records</button>
+    </div>`;
+  document.getElementById('print').onclick = () => window.print();
+  document.getElementById('back').onclick = vList;
+  window.scrollTo(0, 0);
+}
+
+load();
+</script>
+</body>
+</html>

@@ -171,7 +171,7 @@ td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-ali
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <form class="card" id="signForm">
     <h2 id="mTitle">Before you start</h2>
-    <p class="hint">No password needed. Your name goes on your certificate, and your progress is saved on this device.</p>
+    <p class="hint">No password needed. Your name goes on your certificate, and your progress is saved on this device.<span id="recNote"> When you pass a course, your name, workplace and result are also sent to Gellings so we can reissue your certificate if you ever need it.</span></p>
     <label for="fName">Your full name</label>
     <input type="text" id="fName" required maxlength="60" autocomplete="name">
     <label for="fCo">Company or workplace</label>
@@ -190,6 +190,7 @@ td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-ali
 const CONFIG = {
   resultsEmail: 'info@gellings.im',          // Gellings inbox that should receive completion results, e.g. 'someone@yourdomain'
   passMark: 80,              // % needed to pass
+  recordUrl: '',             // Google Apps Script web app URL that stores completions (see admin/SETUP.md). Leave blank to switch off
   storeKey: 'gellingsTraining.v1'
 };
 
@@ -1495,6 +1496,7 @@ function vQuiz(){
       p.pass = { date:d.toISOString(), score:pct, cert:`GEL-${c.code}-${ymd}-${Math.random().toString(36).slice(2,6).toUpperCase()}` };
     } else if (passed) p.pass.score = Math.max(p.pass.score, pct);
     save();
+    if (passed) sendRecords();
     e.target.querySelector('.nav').outerHTML = `<div class="card result" style="background:${passed?'#eaf6ef':'#fdf1ee'}">
       <div class="score">${pct}%</div>
       <h3>${passed ? 'Well done, you passed.' : 'Not quite there yet.'}</h3>
@@ -1532,7 +1534,22 @@ function vCert(){
   $('#back').onclick = () => go({ name:'home' });
 }
 
+/* ============ COMPLETION RECORDS ============ */
+// Sends each pass to Gellings' records sheet once. Anything not yet sent (e.g. offline) is retried on the next visit.
+function sendRecords(){
+  if (!CONFIG.recordUrl || !S.user) return;
+  Object.entries(S.courses).forEach(([id, p]) => {
+    if (!p.pass || p.pass.sent || !COURSES[id]) return;
+    const rec = { name:S.user.name, company:S.user.company, manager:S.user.manager || '', course:COURSES[id].title, score:p.pass.score, passed:p.pass.date, cert:p.pass.cert };
+    fetch(CONFIG.recordUrl, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'text/plain' }, body:JSON.stringify(rec) })
+      .then(() => { p.pass.sent = true; save(); })
+      .catch(() => {});
+  });
+}
+if (!CONFIG.recordUrl) $('#recNote').remove();
+
 render();
+sendRecords();
 </script>
 </body>
 </html>
